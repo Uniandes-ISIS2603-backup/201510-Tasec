@@ -6,8 +6,8 @@
 package co.edu.uniandes.csw.TASEC.Usuario.logic.api;
 
 import co.edu.uniandes.csw.TASEC.cliente.logic.api.*;
-import co.edu.uniandes.csw.SportGroup.country.logic.dto.CountryDTO;
-import co.edu.uniandes.csw.SportGroup.country.logic.dto.CountryPageDTO;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
 import java.util.List;
 
 /**
@@ -16,19 +16,19 @@ import java.util.List;
  */
 public interface IUsuarioLogic {
 
-    public CountryDTO createCountry(CountryDTO detail);
+    public ClienteDTO createCountry(ClienteDTO detail);
 
-    public List<CountryDTO> getCountries();
+    public List<ClienteDTO> getCountries();
 
-    public CountryPageDTO getCountries(Integer page, Integer maxRecords);
+    public ClientePageDTO getCountries(Integer page, Integer maxRecords);
 
-    public CountryDTO getCountry(Long id);
+    public ClienteDTO getCountry(Long id);
 
     public void deleteCountry(Long id);
 
-    public void updateCountry(CountryDTO detail);
+    public void updateCountry(ClienteDTO detail);
     
-    public CountryDTO getMostPopulated();
+    public ClienteDTO getMostPopulated();
     
-    public CountryDTO getLeastPopulated();
+    public ClienteDTO getLeastPopulated();
 }

@@ -5,11 +5,12 @@
  */
 package co.edu.uniandes.csw.SportGroup.sport.logic.ejb;
 
+import co.edu.uniandes.csw.TASEC.proveedor.logic.ejb.ProveedorLogic;
 import co.edu.uniandes.csw.TASEC.Proveedor.logic.api.IProveedorLogic;
-import co.edu.uniandes.csw.SportGroup.sport.logic.converter.SportConverter;
-import co.edu.uniandes.csw.SportGroup.sport.logic.dto.SportDTO;
-import co.edu.uniandes.csw.SportGroup.sport.logic.dto.SportPageDTO;
-import co.edu.uniandes.csw.SportGroup.sport.logic.entity.SportEntity;
+import co.edu.uniandes.csw.TASEC.Proveedor.logic.converter.ProveedorConverter;
+import co.edu.uniandes.csw.TASEC.proveedor.logic.dto.ProveedroDTO;
+import co.edu.uniandes.csw.TASEC.proveedor.logic.dto.ProveedorPageDTO;
+import co.edu.uniandes.csw.TASEC.Proveedor.logic.entity.ProveedorEntity;
 import static co.edu.uniandes.csw.SportGroup.util._TestUtil.generateRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +35,11 @@ public class SportLogicTest {
     @Deployment
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, DEPLOY + ".war")
-                .addPackage(SportEntity.class.getPackage())
-                .addPackage(SportDTO.class.getPackage())
-                .addPackage(SportConverter.class.getPackage())
+                .addPackage(ProveedorEntity.class.getPackage())
+                .addPackage(ProveedroDTO.class.getPackage())
+                .addPackage(ProveedorConverter.class.getPackage())
                 .addPackage(IProveedorLogic.class.getPackage())
-                .addPackage(SportLogic.class.getPackage())
+                .addPackage(ProveedorLogic.class.getPackage())
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource("META-INF/beans.xml", "beans.xml");
     }
@@ -74,11 +75,11 @@ public class SportLogicTest {
         em.createQuery("delete from SportEntity").executeUpdate();
     }
 
-    private List<SportEntity> data = new ArrayList<SportEntity>();
+    private List<ProveedorEntity> data = new ArrayList<ProveedorEntity>();
 
     private void insertData() {
         for (int i = 0; i < 3; i++) {
-            SportEntity entity = new SportEntity();
+            ProveedorEntity entity = new ProveedorEntity();
             entity.setName(generateRandom(String.class));
             entity.setMinAge(generateRandom(Integer.class));
             entity.setMaxAge(generateRandom(Integer.class));
@@ -90,17 +91,17 @@ public class SportLogicTest {
 
     @Test
     public void createSportTest() {
-        SportDTO dto = new SportDTO();
+        ProveedroDTO dto = new ProveedroDTO();
         dto.setName(generateRandom(String.class));
         dto.setMinAge(generateRandom(Integer.class));
         dto.setMaxAge(generateRandom(Integer.class));
         dto.setCountry(generateRandom(Long.class));
 
-        SportDTO result = sportLogic.createSport(dto);
+        ProveedroDTO result = sportLogic.createSport(dto);
 
         Assert.assertNotNull(result);
 
-        SportEntity entity = em.find(SportEntity.class, result.getId());
+        ProveedorEntity entity = em.find(ProveedorEntity.class, result.getId());
 
         Assert.assertEquals(dto.getName(), entity.getName());
         Assert.assertEquals(dto.getMinAge(), entity.getMinAge());
@@ -109,11 +110,11 @@ public class SportLogicTest {
 
     @Test
     public void getSportsTest() {
-        List<SportDTO> list = sportLogic.getSports();
+        List<ProveedroDTO> list = sportLogic.getSports();
         Assert.assertEquals(list.size(), data.size());
-        for (SportDTO dto : list) {
+        for (ProveedroDTO dto : list) {
             boolean found = false;
-            for (SportEntity entity : data) {
+            for (ProveedorEntity entity : data) {
                 if (dto.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -124,8 +125,8 @@ public class SportLogicTest {
 
     @Test
     public void getSportTest() {
-        SportEntity entity = data.get(0);
-        SportDTO dto = sportLogic.getSport(entity.getId());
+        ProveedorEntity entity = data.get(0);
+        ProveedroDTO dto = sportLogic.getSport(entity.getId());
         Assert.assertNotNull(dto);
         Assert.assertEquals(entity.getName(), dto.getName());
         Assert.assertEquals(entity.getMinAge(), dto.getMinAge());
@@ -135,17 +136,17 @@ public class SportLogicTest {
 
     @Test
     public void deleteSportTest() {
-        SportEntity entity = data.get(0);
+        ProveedorEntity entity = data.get(0);
         sportLogic.deleteSport(entity.getId());
-        SportEntity deleted = em.find(SportEntity.class, entity.getId());
+        ProveedorEntity deleted = em.find(ProveedorEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
     @Test
     public void updateSportTest() {
-        SportEntity entity = data.get(0);
+        ProveedorEntity entity = data.get(0);
 
-        SportDTO dto = new SportDTO();
+        ProveedroDTO dto = new ProveedroDTO();
         dto.setId(entity.getId());
         dto.setName(generateRandom(String.class));
         dto.setMinAge(generateRandom(Integer.class));
@@ -154,7 +155,7 @@ public class SportLogicTest {
 
         sportLogic.updateSport(dto);
 
-        SportEntity resp = em.find(SportEntity.class, entity.getId());
+        ProveedorEntity resp = em.find(ProveedorEntity.class, entity.getId());
 
         Assert.assertEquals(dto.getName(), resp.getName());
         Assert.assertEquals(dto.getMinAge(), resp.getMinAge());
@@ -164,19 +165,19 @@ public class SportLogicTest {
     @Test
     public void getSportPaginationTest() {
         //Page 1
-        SportPageDTO dto1 = sportLogic.getSports(1, 2);
+        ProveedorPageDTO dto1 = sportLogic.getSports(1, 2);
         Assert.assertNotNull(dto1);
         Assert.assertEquals(dto1.getRecords().size(), 2);
         Assert.assertEquals(dto1.getTotalRecords().longValue(), 3L);
         //Page 2
-        SportPageDTO dto2 = sportLogic.getSports(2, 2);
+        ProveedorPageDTO dto2 = sportLogic.getSports(2, 2);
         Assert.assertNotNull(dto2);
         Assert.assertEquals(dto2.getRecords().size(), 1);
         Assert.assertEquals(dto2.getTotalRecords().longValue(), 3L);
 
-        for (SportDTO dto : dto1.getRecords()) {
+        for (ProveedroDTO dto : dto1.getRecords()) {
             boolean found = false;
-            for (SportEntity entity : data) {
+            for (ProveedorEntity entity : data) {
                 if (dto.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -184,9 +185,9 @@ public class SportLogicTest {
             Assert.assertTrue(found);
         }
 
-        for (SportDTO dto : dto2.getRecords()) {
+        for (ProveedroDTO dto : dto2.getRecords()) {
             boolean found = false;
-            for (SportEntity entity : data) {
+            for (ProveedorEntity entity : data) {
                 if (dto.getId().equals(entity.getId())) {
                     found = true;
                 }

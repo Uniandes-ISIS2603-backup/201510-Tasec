@@ -1,10 +1,11 @@
 package co.edu.uniandes.csw.SportGroup.country.logic.ejb;
 
+import co.edu.uniandes.csw.TASEC.Cliente.logic.ejb.ClienteLogic;
 import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
-import co.edu.uniandes.csw.SportGroup.country.logic.converter.CountryConverter;
-import co.edu.uniandes.csw.SportGroup.country.logic.dto.CountryDTO;
-import co.edu.uniandes.csw.SportGroup.country.logic.dto.CountryPageDTO;
-import co.edu.uniandes.csw.SportGroup.country.logic.entity.CountryEntity;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.converter.ClienteConverter;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
 import static co.edu.uniandes.csw.SportGroup.util._TestUtil.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +29,10 @@ public class CountryLogicTest {
     @Deployment
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, DEPLOY + ".war")
-                .addPackage(CountryEntity.class.getPackage())
-                .addPackage(CountryDTO.class.getPackage())
-                .addPackage(CountryConverter.class.getPackage())
-                .addPackage(CountryLogic.class.getPackage())
+                .addPackage(ClienteEntity.class.getPackage())
+                .addPackage(ClienteDTO.class.getPackage())
+                .addPackage(ClienteConverter.class.getPackage())
+                .addPackage(ClienteLogic.class.getPackage())
                 .addPackage(IClienteLogic.class.getPackage())
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource("META-INF/beans.xml", "beans.xml");
@@ -68,11 +69,11 @@ public class CountryLogicTest {
         em.createQuery("delete from CountryEntity").executeUpdate();
     }
 
-    private List<CountryEntity> data = new ArrayList<CountryEntity>();
+    private List<ClienteEntity> data = new ArrayList<ClienteEntity>();
 
     private void insertData() {
         for (int i = 0; i < 3; i++) {
-            CountryEntity entity = new CountryEntity();
+            ClienteEntity entity = new ClienteEntity();
             entity.setName(generateRandom(String.class));
             entity.setPopulation(generateRandom(Integer.class));
             em.persist(entity);
@@ -82,15 +83,15 @@ public class CountryLogicTest {
 
     @Test
     public void createCountryTest() {
-        CountryDTO dto = new CountryDTO();
+        ClienteDTO dto = new ClienteDTO();
         dto.setName(generateRandom(String.class));
         dto.setPopulation(generateRandom(Integer.class));
 
-        CountryDTO result = countryLogic.createCountry(dto);
+        ClienteDTO result = countryLogic.createCountry(dto);
 
         Assert.assertNotNull(result);
 
-        CountryEntity entity = em.find(CountryEntity.class, result.getId());
+        ClienteEntity entity = em.find(ClienteEntity.class, result.getId());
 
         Assert.assertEquals(dto.getName(), entity.getName());
         Assert.assertEquals(dto.getPopulation(), entity.getPopulation());
@@ -98,11 +99,11 @@ public class CountryLogicTest {
 
     @Test
     public void getCountrysTest() {
-        List<CountryDTO> list = countryLogic.getCountries();
+        List<ClienteDTO> list = countryLogic.getCountries();
         Assert.assertEquals(list.size(), data.size());
-        for (CountryDTO dto : list) {
+        for (ClienteDTO dto : list) {
             boolean found = false;
-            for (CountryEntity entity : data) {
+            for (ClienteEntity entity : data) {
                 if (dto.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -113,8 +114,8 @@ public class CountryLogicTest {
 
     @Test
     public void getCountryTest() {
-        CountryEntity entity = data.get(0);
-        CountryDTO dto = countryLogic.getCountry(entity.getId());
+        ClienteEntity entity = data.get(0);
+        ClienteDTO dto = countryLogic.getCountry(entity.getId());
         Assert.assertNotNull(dto);
         Assert.assertEquals(entity.getName(), dto.getName());
         Assert.assertEquals(entity.getPopulation(), dto.getPopulation());
@@ -123,24 +124,24 @@ public class CountryLogicTest {
 
     @Test
     public void deleteCountryTest() {
-        CountryEntity entity = data.get(0);
+        ClienteEntity entity = data.get(0);
         countryLogic.deleteCountry(entity.getId());
-        CountryEntity deleted = em.find(CountryEntity.class, entity.getId());
+        ClienteEntity deleted = em.find(ClienteEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
     @Test
     public void updateCountryTest() {
-        CountryEntity entity = data.get(0);
+        ClienteEntity entity = data.get(0);
 
-        CountryDTO dto = new CountryDTO();
+        ClienteDTO dto = new ClienteDTO();
         dto.setId(entity.getId());
         dto.setName(generateRandom(String.class));
         dto.setPopulation(generateRandom(Integer.class));
 
         countryLogic.updateCountry(dto);
 
-        CountryEntity resp = em.find(CountryEntity.class, entity.getId());
+        ClienteEntity resp = em.find(ClienteEntity.class, entity.getId());
 
         Assert.assertEquals(dto.getName(), resp.getName());
         Assert.assertEquals(dto.getPopulation(), resp.getPopulation());
@@ -149,19 +150,19 @@ public class CountryLogicTest {
     @Test
     public void getCountryPaginationTest() {
         //Page 1
-        CountryPageDTO dto1 = countryLogic.getCountries(1, 2);
+        ClientePageDTO dto1 = countryLogic.getCountries(1, 2);
         Assert.assertNotNull(dto1);
         Assert.assertEquals(dto1.getRecords().size(), 2);
         Assert.assertEquals(dto1.getTotalRecords().longValue(), 3L);
         //Page 2
-        CountryPageDTO dto2 = countryLogic.getCountries(2, 2);
+        ClientePageDTO dto2 = countryLogic.getCountries(2, 2);
         Assert.assertNotNull(dto2);
         Assert.assertEquals(dto2.getRecords().size(), 1);
         Assert.assertEquals(dto2.getTotalRecords().longValue(), 3L);
 
-        for (CountryDTO dto : dto1.getRecords()) {
+        for (ClienteDTO dto : dto1.getRecords()) {
             boolean found = false;
-            for (CountryEntity entity : data) {
+            for (ClienteEntity entity : data) {
                 if (dto.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -169,9 +170,9 @@ public class CountryLogicTest {
             Assert.assertTrue(found);
         }
 
-        for (CountryDTO dto : dto2.getRecords()) {
+        for (ClienteDTO dto : dto2.getRecords()) {
             boolean found = false;
-            for (CountryEntity entity : data) {
+            for (ClienteEntity entity : data) {
                 if (dto.getId().equals(entity.getId())) {
                     found = true;
                 }
