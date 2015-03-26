@@ -1,39 +1,42 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.entity;
+package co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.entity;
 
+import co.edu.uniandes.csw.TASEC.Servicio.logic.entity.ServicioEntity;
+import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.entity.ServicioSimpleEntity;
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class ClienteEntity {
+public class PaqueteServiciosEntity extends ServicioEntity{
 
     @Id
     @GeneratedValue(generator = "Country")
-    private Long id;
-    private String name;
-    private Integer population;
+    public int cupos;
+    public int cuposrestantes;
+    public ArrayList<ServicioSimpleEntity> servicios;
 
-    public Long getId() {
-        return id;
+    public int getCupos() {
+        return cupos;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCupos(int cupos) {
+        this.cupos = cupos;
     }
 
-    public String getName() {
-        return name;
+     public int getCuposRestantes() {
+        return cupos;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCuposRestantes(int cuposrestantes) {
+        this.cuposrestantes = cuposrestantes;
     }
 
-    public Integer getPopulation() {
-        return population;
+    public ArrayList<ServicioSimpleEntity> getServicios() {
+        return servicios;
     }
 
-    public void setPopulation(Integer population) {
-        this.population = population;
+    public void setServicios(ArrayList<ServicioSimpleEntity> servicios) {
+        this.servicios = servicios;
     }
 }

@@ -1,6 +1,6 @@
 package co.edu.uniandes.csw.SportGroup.country.logic.ejb;
 
-import co.edu.uniandes.csw.TASEC.Cliente.logic.ejb.ClienteLogic;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.ejb.PaqueteServiciosLogic;
 import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
 import co.edu.uniandes.csw.TASEC.Cliente.logic.converter.ClienteConverter;
 import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
@@ -32,7 +32,7 @@ public class CountryLogicTest {
                 .addPackage(ClienteEntity.class.getPackage())
                 .addPackage(ClienteDTO.class.getPackage())
                 .addPackage(ClienteConverter.class.getPackage())
-                .addPackage(ClienteLogic.class.getPackage())
+                .addPackage(PaqueteServiciosLogic.class.getPackage())
                 .addPackage(IClienteLogic.class.getPackage())
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource("META-INF/beans.xml", "beans.xml");

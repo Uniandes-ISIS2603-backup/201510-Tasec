@@ -1,36 +1,55 @@
 package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
 
+import co.edu.uniandes.csw.TASEC.Usuario.logic.dto.UsuarioDTO;
+import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ClienteDTO {
-    private Long id;
+public class ClienteDTO extends UsuarioDTO {
+    private int saldo;
+    private int tarjetaDeCredito;
+    private String direccion;
+    private int telefono;
+    private ArrayList<FacturaEntity> comprasRealizadas;
+    public Carrito carrito;
 
-    private String name;
-
-    private Integer population;
-
-    public Long getId() {
-        return id;
+    public int getSaldo() {
+        return saldo;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
     }
 
-    public String getName() {
-        return name;
+    public int getTarjetaDeCredito() {
+        return tarjetaDeCredito;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTarjetaDeCredito(int tarjetaDeCredito) {
+        this.tarjetaDeCredito = tarjetaDeCredito;
     }
 
-    public Integer getPopulation() {
-        return population;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setPopulation(Integer population) {
-        this.population = population;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
+    public int getTelefono() {
+        return telefono;
+    }
+    
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+    
+    public ArrayList<FacturaEntity> getComprasRealizadas(){
+            return comprasRealizadas;
+    }
+    
+    public void setComprasRealizadas(ArrayList<FacturaEntity> compras){
+        this.comprasRealizadas=compras;
     }
 }

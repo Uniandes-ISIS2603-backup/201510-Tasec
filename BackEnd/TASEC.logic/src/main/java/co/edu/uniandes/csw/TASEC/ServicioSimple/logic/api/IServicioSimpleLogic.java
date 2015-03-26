@@ -34,9 +34,9 @@ public interface IServicioSimpleLogic {
 
     public ServicioSimpleDTO createServicioSimple(ServicioSimpleDTO detail);
 
-    public List<ServicioSimpleDTO> getServicioSimple();
+    public List<ServicioSimpleDTO> getServiciosSimples();
 
-    public ServicioSimplePageDTO getServicioSimple(Integer page, Integer maxRecords);
+    public ServicioSimplePageDTO getServiciosSimples(Integer page, Integer maxRecords);
 
     public ServicioSimpleDTO getServicioSimple(Long id);
 

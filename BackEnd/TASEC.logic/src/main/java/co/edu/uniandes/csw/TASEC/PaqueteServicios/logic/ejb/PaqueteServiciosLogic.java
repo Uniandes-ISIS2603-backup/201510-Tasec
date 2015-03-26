@@ -1,10 +1,10 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.ejb;
+package co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.ejb;
 
-import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.converter.ClienteConverter;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.api.IPaqueteServiciosLogic;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.converter.PaqueteServiciosConverter;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto.PaqueteServiciosDTO;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto.PaqueteServiciosPageDTO;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.entity.PaqueteServiciosEntity;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -14,23 +14,23 @@ import javax.persistence.Query;
 
 @Stateless 
 @LocalBean
-public class ClienteLogic implements IClienteLogic{
+public class PaqueteServiciosLogic implements IPaqueteServiciosLogic{
 
     @PersistenceContext(unitName = "SportClassPU")
     protected EntityManager entityManager;
 
-    public ClienteDTO createCountry(ClienteDTO country) {
-        ClienteEntity entity = ClienteConverter.persistenceDTO2Entity(country);
+    public PaqueteServiciosDTO createPaqueteServicios(PaqueteServiciosDTO paquete) {
+        PaqueteServiciosEntity entity = PaqueteServiciosConverter.persistenceDTO2Entity(paquete);
         entityManager.persist(entity);
-        return ClienteConverter.entity2PersistenceDTO(entity);
+        return PaqueteServiciosConverter.entity2PersistenceDTO(entity);
     }
 
-    public List<ClienteDTO> getCountries() {
-        Query q = entityManager.createQuery("select u from CountryEntity u");
-        return ClienteConverter.entity2PersistenceDTOList(q.getResultList());
+    public List<PaqueteServiciosDTO> getPaquetesServicios() {
+        Query q = entityManager.createQuery("select u from PaqueteServiciosEntity u");
+        return PaqueteServiciosConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
-    public ClientePageDTO getCountries(Integer page, Integer maxRecords) {
+    public PaqueteServiciosPageDTO getPaquetesServicios(Integer page, Integer maxRecords) {
         Query count = entityManager.createQuery("select count(u) from CountryEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
@@ -39,33 +39,24 @@ public class ClienteLogic implements IClienteLogic{
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);
         }
-        ClientePageDTO response = new ClientePageDTO();
+        PaqueteServiciosPageDTO response = new PaqueteServiciosPageDTO();
         response.setTotalRecords(regCount);
-        response.setRecords(ClienteConverter.entity2PersistenceDTOList(q.getResultList()));
+        response.setRecords(PaqueteServiciosConverter.entity2PersistenceDTOList(q.getResultList()));
         return response;
     }
 
-    public ClienteDTO getCountry(Long id) {
-        return ClienteConverter.entity2PersistenceDTO(entityManager.find(ClienteEntity.class, id));
+    public PaqueteServiciosDTO getPaqueteServicios(Long id) {
+        return PaqueteServiciosConverter.entity2PersistenceDTO(entityManager.find(PaqueteServiciosEntity.class, id));
     }
 
-    public void deleteCountry(Long id) {
-        ClienteEntity entity = entityManager.find(ClienteEntity.class, id);
+    public void deletePaqueteServicios(Long id) {
+        PaqueteServiciosEntity entity = entityManager.find(PaqueteServiciosEntity.class, id);
         entityManager.remove(entity);
     }
 
-    public void updateCountry(ClienteDTO country) {
-        ClienteEntity entity = entityManager.merge(ClienteConverter.persistenceDTO2Entity(country));
-        ClienteConverter.entity2PersistenceDTO(entity);
+    public void updatePaqueteServicios(PaqueteServiciosDTO paquete) {
+        PaqueteServiciosEntity entity = entityManager.merge(PaqueteServiciosConverter.persistenceDTO2Entity(paquete));
+        PaqueteServiciosConverter.entity2PersistenceDTO(entity);
     }
 
-    public ClienteDTO getMostPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MAX(v.population) from CountryEntity v)");
-        return ClienteConverter.entity2PersistenceDTO((ClienteEntity)query.getSingleResult());
-    }
-
-    public ClienteDTO getLeastPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MIN(v.population) from CountryEntity v)");
-        return ClienteConverter.entity2PersistenceDTO((ClienteEntity)query.getSingleResult());
-    }
 }

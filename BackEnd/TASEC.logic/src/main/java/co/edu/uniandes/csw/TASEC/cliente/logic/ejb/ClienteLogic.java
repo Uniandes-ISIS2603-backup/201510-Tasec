@@ -16,25 +16,25 @@ import javax.persistence.Query;
 @LocalBean
 public class ClienteLogic implements IClienteLogic{
 
-    @PersistenceContext(unitName = "SportClassPU")
+    @PersistenceContext(unitName = "ClienteClassPU")
     protected EntityManager entityManager;
 
-    public ClienteDTO createCountry(ClienteDTO country) {
-        ClienteEntity entity = ClienteConverter.persistenceDTO2Entity(country);
+    public ClienteDTO createCliente(ClienteDTO cliente) {
+        ClienteEntity entity = ClienteConverter.persistenceDTO2Entity(cliente);
         entityManager.persist(entity);
         return ClienteConverter.entity2PersistenceDTO(entity);
     }
 
-    public List<ClienteDTO> getCountries() {
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+    public List<ClienteDTO> getCliente() {
+        Query q = entityManager.createQuery("select u from ClienteEntity u");
         return ClienteConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
-    public ClientePageDTO getCountries(Integer page, Integer maxRecords) {
-        Query count = entityManager.createQuery("select count(u) from CountryEntity u");
+    public ClientePageDTO getCliente(Integer page, Integer maxRecords) {
+        Query count = entityManager.createQuery("select count(u) from ClienteEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from ClienteEntity u");
         if (page != null && maxRecords != null) {
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);
@@ -45,27 +45,17 @@ public class ClienteLogic implements IClienteLogic{
         return response;
     }
 
-    public ClienteDTO getCountry(Long id) {
+    public ClienteDTO getCliente(Long id) {
         return ClienteConverter.entity2PersistenceDTO(entityManager.find(ClienteEntity.class, id));
     }
 
-    public void deleteCountry(Long id) {
+    public void deleteCliente(Long id) {
         ClienteEntity entity = entityManager.find(ClienteEntity.class, id);
         entityManager.remove(entity);
     }
 
-    public void updateCountry(ClienteDTO country) {
-        ClienteEntity entity = entityManager.merge(ClienteConverter.persistenceDTO2Entity(country));
+    public void updateCliente(ClienteDTO cliente) {
+        ClienteEntity entity = entityManager.merge(ClienteConverter.persistenceDTO2Entity(cliente));
         ClienteConverter.entity2PersistenceDTO(entity);
-    }
-
-    public ClienteDTO getMostPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MAX(v.population) from CountryEntity v)");
-        return ClienteConverter.entity2PersistenceDTO((ClienteEntity)query.getSingleResult());
-    }
-
-    public ClienteDTO getLeastPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MIN(v.population) from CountryEntity v)");
-        return ClienteConverter.entity2PersistenceDTO((ClienteEntity)query.getSingleResult());
     }
 }

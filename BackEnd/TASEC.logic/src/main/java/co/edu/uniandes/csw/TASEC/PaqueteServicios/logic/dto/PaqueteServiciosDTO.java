@@ -1,36 +1,37 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
+package co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto;
 
+import co.edu.uniandes.csw.TASEC.Servicio.logic.dto.ServicioDTO;
+import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.entity.ServicioSimpleEntity;
+import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ClienteDTO {
-    private Long id;
+public class PaqueteServiciosDTO extends ServicioDTO {
+    public int cupos;
+    public int cuposrestantes;
+    public ArrayList<ServicioSimpleEntity> servicios;
 
-    private String name;
-
-    private Integer population;
-
-    public Long getId() {
-        return id;
+    public int getCupos() {
+        return cupos;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCupos(int cupos) {
+        this.cupos = cupos;
     }
 
-    public String getName() {
-        return name;
+     public int getCuposRestantes() {
+        return cupos;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCuposRestantes(int cuposrestantes) {
+        this.cuposrestantes = cuposrestantes;
     }
 
-    public Integer getPopulation() {
-        return population;
+    public ArrayList<ServicioSimpleEntity> getServicios() {
+        return servicios;
     }
 
-    public void setPopulation(Integer population) {
-        this.population = population;
+    public void setServicios(ArrayList<ServicioSimpleEntity> servicios) {
+        this.servicios = servicios;
     }
 }

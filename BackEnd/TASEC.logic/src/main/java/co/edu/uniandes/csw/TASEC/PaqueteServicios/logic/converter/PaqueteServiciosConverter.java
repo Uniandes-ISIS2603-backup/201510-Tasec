@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.TASEC.Cliente.logic.converter;
+package co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.converter;
 
 
+import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto.PaqueteServiciosDTO;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.entity.PaqueteServiciosEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,27 +17,25 @@ import java.util.List;
  *
  * @author afesguerra
  */
-public class ClienteConverter {
-    public static ClienteDTO entity2PersistenceDTO(ClienteEntity entity) {
+public class PaqueteServiciosConverter {
+    public static PaqueteServiciosDTO entity2PersistenceDTO(PaqueteServiciosEntity entity) {
         if (entity != null) {
-            ClienteDTO dto = new ClienteDTO();
-            dto.setId(entity.getId());
-            dto.setName(entity.getName());
-            dto.setPopulation(entity.getPopulation());
+            PaqueteServiciosDTO dto = new PaqueteServiciosDTO();
+            dto.setCupos(entity.getCupos());
+            dto.setCuposRestantes(entity.getCuposRestantes());
+            dto.setServicios(entity.getServicios());
             return dto;
         } else {
             return null;
         }
     }
 
-    public static ClienteEntity persistenceDTO2Entity(ClienteDTO dto) {
+    public static PaqueteServiciosEntity persistenceDTO2Entity(PaqueteServiciosDTO dto) {
         if (dto != null) {
-            ClienteEntity entity = new ClienteEntity();
-            entity.setId(dto.getId());
-
-            entity.setName(dto.getName());
-
-            entity.setPopulation(dto.getPopulation());
+            PaqueteServiciosEntity entity = new PaqueteServiciosEntity();
+             entity.setCupos(dto.getCupos());
+            entity.setCuposRestantes(dto.getCuposRestantes());
+            entity.setServicios(dto.getServicios());
 
             return entity;
         } else {
@@ -41,17 +43,17 @@ public class ClienteConverter {
         }
     }
 
-    public static List<CountryDTO> entity2PersistenceDTOList(List<CountryEntity> entities) {
-        List<CountryDTO> dtos = new ArrayList<CountryDTO>();
-        for (CountryEntity entity : entities) {
+    public static List<PaqueteServiciosDTO> entity2PersistenceDTOList(List<PaqueteServiciosEntity> entities) {
+        List<PaqueteServiciosDTO> dtos = new ArrayList<PaqueteServiciosDTO>();
+        for (PaqueteServiciosEntity entity : entities) {
             dtos.add(entity2PersistenceDTO(entity));
         }
         return dtos;
     }
 
-    public static List<CountryEntity> persistenceDTO2EntityList(List<CountryDTO> dtos) {
-        List<CountryEntity> entities = new ArrayList<CountryEntity>();
-        for (CountryDTO dto : dtos) {
+    public static List<PaqueteServiciosEntity> persistenceDTO2EntityList(List<PaqueteServiciosDTO> dtos) {
+        List<PaqueteServiciosEntity> entities = new ArrayList<PaqueteServiciosEntity>();
+        for (PaqueteServiciosDTO dto : dtos) {
             entities.add(persistenceDTO2Entity(dto));
         }
         return entities;

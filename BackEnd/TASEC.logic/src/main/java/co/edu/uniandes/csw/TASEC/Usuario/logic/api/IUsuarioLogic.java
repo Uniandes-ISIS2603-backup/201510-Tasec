@@ -16,19 +16,15 @@ import java.util.List;
  */
 public interface IUsuarioLogic {
 
-    public ClienteDTO createCountry(ClienteDTO detail);
+    public ClienteDTO createUsuario(ClienteDTO detail);
 
-    public List<ClienteDTO> getCountries();
+    public List<ClienteDTO> getUsuarios();
 
-    public ClientePageDTO getCountries(Integer page, Integer maxRecords);
+    public ClientePageDTO getUsuarios(Integer page, Integer maxRecords);
 
-    public ClienteDTO getCountry(Long id);
+    public ClienteDTO getUsuario(Long id);
 
-    public void deleteCountry(Long id);
+    public void deleteUsuario(Long id);
 
-    public void updateCountry(ClienteDTO detail);
-    
-    public ClienteDTO getMostPopulated();
-    
-    public ClienteDTO getLeastPopulated();
+    public void updateUsuario(ClienteDTO detail);
 }

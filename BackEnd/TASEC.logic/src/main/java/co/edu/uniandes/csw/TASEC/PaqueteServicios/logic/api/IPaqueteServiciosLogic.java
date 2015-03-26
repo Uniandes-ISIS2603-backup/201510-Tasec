@@ -35,9 +35,9 @@ public interface IPaqueteServiciosLogic {
 
     public PaqueteServiciosDTO createPaqueteServicios(PaqueteServiciosDTO detail);
 
-    public List<PaqueteServiciosDTO> getPaqueteServicios();
+    public List<PaqueteServiciosDTO> getPaquetesServicios();
 
-    public PaqueteServiciosPageDTO getPaqueteServicios(Integer page, Integer maxRecords);
+    public PaqueteServiciosPageDTO getPaquetesServicios(Integer page, Integer maxRecords);
 
     public PaqueteServiciosDTO getPaqueteServicios(Long id);
 
