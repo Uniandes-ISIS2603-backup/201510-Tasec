@@ -1,22 +1,20 @@
 package co.edu.uniandes.csw.TASEC.Cliente.logic.entity;
 
+import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 import co.edu.uniandes.csw.TASEC.Usuario.logic.entity.UsuarioEntity;
 import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class ClienteEntity extends UsuarioEntity {
 
-    @Id
-    @GeneratedValue(generator = "Country")
+    @GeneratedValue(generator = "Cliente")
     private int saldo;
     private int tarjetaDeCredito;
     private String direccion;
     private int telefono;
     private ArrayList<FacturaEntity> comprasRealizadas;
-    public Carrito carrito;
 
     public int getSaldo() {
         return saldo;

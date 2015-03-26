@@ -56,15 +56,15 @@ public class ProveedorLogic implements IProveedorLogic {
     }
 
     public List<ProveedorDTO> getProveedores() {
-        Query q = entityManager.createQuery("select u from SportEntity u");
+        Query q = entityManager.createQuery("select u from ProveedorEntity u");
         return ProveedorConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
     public ProveedorPageDTO getProveedores(Integer page, Integer maxRecords) {
-        Query count = entityManager.createQuery("select count(u) from SportEntity u");
+        Query count = entityManager.createQuery("select count(u) from ProveedorEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
-        Query q = entityManager.createQuery("select u from SportEntity u");
+        Query q = entityManager.createQuery("select u from ProveedorEntity u");
         if (page != null && maxRecords != null) {
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);
@@ -84,11 +84,11 @@ ProveedorEntity entity = entityManager.find(ProveedorEntity.class, id);
 entityManager.remove(entity);
 }
 public void updateProveedor(ProveedorDTO detail) {
-ProveedorEntity entity = entityManager.merge(ProveedorConverter.persistenceDTO2Entity(sport));
+ProveedorEntity entity = entityManager.merge(ProveedorConverter.persistenceDTO2Entity(detail));
 ProveedorConverter.entity2PersistenceDTO(entity);
 }
-public void agregarServicioCatalogo(ProveedorDTO detail){
-    
-}
 
+    public void agregarServicioCatalogo(ProveedorDTO detail) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

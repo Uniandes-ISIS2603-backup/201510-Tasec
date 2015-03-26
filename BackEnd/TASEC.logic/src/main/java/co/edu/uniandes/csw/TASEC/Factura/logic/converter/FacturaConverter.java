@@ -9,7 +9,6 @@ package co.edu.uniandes.csw.TASEC.Factura.logic.converter;
 import java.util.ArrayList;
 import java.util.List;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
-import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaPageDTO;
 import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 /**
  *

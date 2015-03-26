@@ -35,7 +35,7 @@ import javax.persistence.Id;
 public class UsuarioEntity {
 
     @Id
-    @GeneratedValue(generator = "Sport")
+    @GeneratedValue(generator = "Usuario")
     private Long id;
     private String name;
     private Integer minAge;

@@ -2,9 +2,11 @@ package co.edu.uniandes.csw.TASEC.Cliente.logic.ejb;
 
 import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
 import co.edu.uniandes.csw.TASEC.Cliente.logic.converter.ClienteConverter;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
 import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
 import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -29,8 +31,8 @@ public class ClienteLogic implements IClienteLogic{
         Query q = entityManager.createQuery("select u from ClienteEntity u");
         return ClienteConverter.entity2PersistenceDTOList(q.getResultList());
     }
-
-    public ClientePageDTO getCliente(Integer page, Integer maxRecords) {
+    
+    public ClientePageDTO getClientes(Integer page, Integer maxRecords) {
         Query count = entityManager.createQuery("select count(u) from ClienteEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
@@ -57,5 +59,14 @@ public class ClienteLogic implements IClienteLogic{
     public void updateCliente(ClienteDTO cliente) {
         ClienteEntity entity = entityManager.merge(ClienteConverter.persistenceDTO2Entity(cliente));
         ClienteConverter.entity2PersistenceDTO(entity);
+    }
+
+    public List<ClienteDTO> getClientes() {
+        Query q = entityManager.createQuery("select u from ClienteEntity u");
+        return ClienteConverter.entity2PersistenceDTOList(q.getResultList());
+    }
+
+    public List<FacturaDTO> getHistoricoTransacciones(Date fechaInicial, Date fechaFinal) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -26,15 +26,15 @@ public class FacturaLogic implements IFacturaLogic{
     }
 
     public List<FacturaDTO> getFactura() {
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from FacturaEntity u");
         return FacturaConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
     public FacturaPageDTO getFactura(Integer page, Integer maxRecords) {
-        Query count = entityManager.createQuery("select count(u) from CountryEntity u");
+        Query count = entityManager.createQuery("select count(u) from FacturaEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from FacturaEntity u");
         if (page != null && maxRecords != null) {
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);

@@ -11,7 +11,6 @@ public class AdministradorEntity {
     @GeneratedValue(generator = "Country")
     private Long id;
     private String name;
-    private Integer population;
 
     public Long getId() {
         return id;
@@ -27,13 +26,5 @@ public class AdministradorEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(Integer population) {
-        this.population = population;
     }
 }

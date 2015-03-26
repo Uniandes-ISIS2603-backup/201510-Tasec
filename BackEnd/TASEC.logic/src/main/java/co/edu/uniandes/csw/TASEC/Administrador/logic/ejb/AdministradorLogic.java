@@ -26,15 +26,15 @@ public class AdministradorLogic implements IAdministradorLogic{
     }
 
     public List<AdministradorDTO> getAdministrators() {
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from AdministradorEntity u");
         return AdministradorConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
     public AdministradorPageDTO getAdministrators(Integer page, Integer maxRecords) {
-        Query count = entityManager.createQuery("select count(u) from CountryEntity u");
+        Query count = entityManager.createQuery("select count(u) from AdministradorEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from AdministradorEntity u");
         if (page != null && maxRecords != null) {
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);

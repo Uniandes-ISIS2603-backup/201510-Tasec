@@ -5,12 +5,10 @@ import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.entity.ServicioSimpleEntit
 import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class PaqueteServiciosEntity extends ServicioEntity{
 
-    @Id
     @GeneratedValue(generator = "Country")
     public int cupos;
     public int cuposrestantes;

@@ -30,12 +30,10 @@ package co.edu.uniandes.csw.TASEC.ServicioSimple.logic.entity;
 import co.edu.uniandes.csw.TASEC.Servicio.logic.entity.ServicioEntity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class ServicioSimpleEntity extends ServicioEntity{
 
-    @Id
     @GeneratedValue(generator = "ServicioSimple")
     private String categoria;
 

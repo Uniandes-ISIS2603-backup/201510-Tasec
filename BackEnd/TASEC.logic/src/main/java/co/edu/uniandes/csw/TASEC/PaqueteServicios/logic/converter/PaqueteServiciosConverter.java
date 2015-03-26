@@ -6,8 +6,6 @@
 package co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.converter;
 
 
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto.PaqueteServiciosDTO;
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.entity.PaqueteServiciosEntity;
 import java.util.ArrayList;

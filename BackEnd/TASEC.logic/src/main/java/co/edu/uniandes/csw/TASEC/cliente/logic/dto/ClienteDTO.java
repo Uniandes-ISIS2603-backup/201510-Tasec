@@ -12,8 +12,7 @@ public class ClienteDTO extends UsuarioDTO {
     private String direccion;
     private int telefono;
     private ArrayList<FacturaEntity> comprasRealizadas;
-    public Carrito carrito;
-
+    
     public int getSaldo() {
         return saldo;
     }

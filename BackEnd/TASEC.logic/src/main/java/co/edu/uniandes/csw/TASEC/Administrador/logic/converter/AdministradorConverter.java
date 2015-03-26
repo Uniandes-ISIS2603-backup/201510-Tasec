@@ -20,7 +20,6 @@ public class AdministradorConverter {
             AdministradorDTO dto = new AdministradorDTO();
             dto.setId(entity.getId());
             dto.setName(entity.getName());
-            dto.setPopulation(entity.getPopulation());
             return dto;
         } else {
             return null;
@@ -33,8 +32,6 @@ public class AdministradorConverter {
             entity.setId(dto.getId());
 
             entity.setName(dto.getName());
-
-            entity.setPopulation(dto.getPopulation());
 
             return entity;
         } else {

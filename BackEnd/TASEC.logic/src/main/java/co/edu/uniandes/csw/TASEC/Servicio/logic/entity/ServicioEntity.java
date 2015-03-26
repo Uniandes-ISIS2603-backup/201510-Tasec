@@ -31,6 +31,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 @Entity
 public class ServicioEntity {
@@ -42,6 +43,7 @@ public class ServicioEntity {
     private String descripcion;
     private Integer calificacion;
     private Integer precio;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha;
     private boolean hayOferta;
     private Integer precioOferta;

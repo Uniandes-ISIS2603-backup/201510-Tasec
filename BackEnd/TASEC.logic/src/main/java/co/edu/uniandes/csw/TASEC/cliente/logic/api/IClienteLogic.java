@@ -5,8 +5,10 @@
  */
 package co.edu.uniandes.csw.TASEC.cliente.logic.api;
 
-import co.edu.uniandes.csw.SportGroup.Cliente.logic.dto.ClienteDTO;
-import co.edu.uniandes.csw.SportGroup.Cliente.logic.dto.ClientePageDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,8 +30,4 @@ public interface IClienteLogic {
     public void updateCliente(ClienteDTO detail);
     
     public List<FacturaDTO> getHistoricoTransacciones(Date fechaInicial, Date fechaFinal);
-    
-    
-    
-   
 }
