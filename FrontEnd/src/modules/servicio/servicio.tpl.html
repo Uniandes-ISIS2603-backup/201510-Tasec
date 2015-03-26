@@ -1,4 +1,135 @@
-<div ng-controller="servicioCtrl as servicioCtrl">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Servicios</title>
+
+    <!-- Bootstrap Core CSS -->
+
+    <!-- Custom CSS -->
+    <link href="src/assets/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="src/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Registrese en TASEC</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Fabio Espinosa <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="mostrarServicios.html"><i class="fa fa-fw fa-edit"></i> Nuestros Servicios</a>
+                    </li>
+                    
+                    
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Catálogo Servicios
+                        </h1>
+                        
+                <!-- /.row -->
+
+               
+                    <div class="col-lg-6">
+                        <h3>Servicios actuales</h3>
+
+                        
+                        
+                        
+   <div class="row" ng-controller="servicioCtrl as servicioCtrl">
 	<div id="header">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
@@ -15,7 +146,7 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="country-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+                                        <button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
 					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
 					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
@@ -24,15 +155,17 @@
 		</nav>
 	</div>
 	<div ng-hide="servicioCtrl.editMode">
-		<table class="table table-striped table-bordered">
+            
+		
+            <table ng-show="records.length" class="table table-striped table-bordered">
 			<thead>
 				<tr>
 					<th>Nombre</th>
 					<th>Descripción</th>
 					<th>Calificación</th>
                                         <th>Precio</th>
-                                        <th>Descuento</th>
-					<th>Actions</th>
+                                        <th>Descuento</th> 
+                                        <th>Acciones </th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,27 +173,27 @@
 					<td>{{record.nombre}}</td>
 					<td>{{record.descripcion}}</td>
 					<td>{{record.calificacion}}</td>
-                                        <td>{{record.precio}}</td>
+                                        <td>{{record.precio| currency}}</td>
                                         <td>{{record.descuento}}</td>
-					<td>
-						<button class="btn btn-default btn-sm" ng-click="servicioCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-						<button class="btn btn-default btn-sm" ng-click="servicioCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
-					</td>
+                                        <td><button class="btn btn-default btn-sm" ng-click="servicioCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                                            <button class="btn btn-default btn-sm" ng-click="servicioCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Borrar</button>   
+                                        </td>
 				</tr>
 			</tbody>
 		</table>
-        <pagination total-items="totalItems" ng-model="currentPage" ng-change="servicioCtrl.pageChanged()" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" items-per-page="itemsPerPage"></pagination>
 	</div>
+        <h3>Desea agregar un servicio? (Solo proveedores) </h3>
 	<div ng-show="servicioCtrl.editMode">
-		<form name="servicioForm" role="form">
-            <input id="id" class="form-control" type="hidden" ng-model="currentRecord.id"/>			
+            
+		<form name="countryForm" role="form">
+			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 			<div class="form-group">
-				<label for="name">Nombre</label>
+				<label for="nombre">Nombre</label>
 				<input id="nombre" class="form-control" type="text" ng-model="currentRecord.nombre"/>
 			</div>
 			<div class="form-group">
-				<label for="descripción">Descripción</label>
-				<input id="descripcion" class="form-control" type="text" ng-model="currentRecord.descripcion"/>
+				<label for="descripcion">Descripción </label>
+				<input id="descripcion" class="form-control" type="text"  ng-model="currentRecord.descripcion"/>
 			</div>
 			<div class="form-group">
 				<label for="calificacion">Calificación</label>
@@ -75,5 +208,25 @@
 				<input id="descuento" class="form-control" type="number" ng-model="currentRecord.descuento"/>
 			</div>
 		</form>
+            <button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-airplane"></span> Crear servicio nuevo</button>
 	</div>
 </div>
+                      
+                        <a href="#/">Haga click aqui para volver a la página principal</a>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+</body>
+
+</html>
