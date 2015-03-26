@@ -26,5 +26,10 @@ public interface IClienteLogic {
     public void deleteCliente(Long id);
 
     public void updateCliente(ClienteDTO detail);
+    
+    public List<FacturaDTO> getHistoricoTransacciones(Date fechaInicial, Date fechaFinal);
+    
+    
+    
    
 }
