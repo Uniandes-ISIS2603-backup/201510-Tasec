@@ -35,9 +35,9 @@ public interface IFacturaLogic {
 
     public FacturaDTO createFactura(FacturaDTO detail);
 
-    public List<FacturaDTO> getFactura();
+    public List<FacturaDTO> getFacturas();
 
-    public FacturaPageDTO getFactura(Integer page, Integer maxRecords);
+    public FacturaPageDTO getFacturas(Integer page, Integer maxRecords);
 
     public FacturaDTO getFactura(Long id);
 
