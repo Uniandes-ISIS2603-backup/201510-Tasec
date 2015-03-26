@@ -29,7 +29,7 @@ package co.edu.uniandes.csw.TASEC.Administrador.logic.api;
 
 import co.edu.uniandes.csw.TASEC.Administrador.logic.api.*;
 import co.edu.uniandes.csw.TASEC.Administrador.logic.dto.AdministradorDTO;
-import co.edu.uniandes.csw.TASEC.Administrador.logic.dto.AdmnistradorPageDTO;
+import co.edu.uniandes.csw.TASEC.Administrador.logic.dto.AdministradorPageDTO;
 import java.util.List;
 
 public interface IAdministradorLogic {
@@ -38,7 +38,7 @@ public interface IAdministradorLogic {
 
     public List<AdministradorDTO> getAdministrators();
 
-    public AdministradorDTO getAdministrators(Integer page, Integer maxRecords);
+    public AdministradorPageDTO getAdministrators(Integer page, Integer maxRecords);
 
     public AdministradorDTO getAdministrator(Long id);
 

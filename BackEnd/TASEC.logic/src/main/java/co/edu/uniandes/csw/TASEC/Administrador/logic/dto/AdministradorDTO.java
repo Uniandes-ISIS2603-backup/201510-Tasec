@@ -1,9 +1,9 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
+package co.edu.uniandes.csw.TASEC.Administrador.logic.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ClienteDTO {
+public class AdministradorDTO {
     private Long id;
 
     private String name;

@@ -1,13 +1,13 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
+package co.edu.uniandes.csw.TASEC.Administrador.logic.dto;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ClientePageDTO {
+public class AdministradorPageDTO {
     private Long totalRecords;
 
-    private List<ClienteDTO> records;
+    private List<AdministradorDTO> records;
 
     public Long getTotalRecords() {
         return totalRecords;
@@ -17,11 +17,11 @@ public class ClientePageDTO {
         this.totalRecords = totalRecords;
     }
 
-    public List<ClienteDTO> getRecords() {
+    public List<AdministradorDTO> getRecords() {
         return records;
     }
 
-    public void setRecords(List<ClienteDTO> records) {
+    public void setRecords(List<AdministradorDTO> records) {
         this.records = records;
     }
 }

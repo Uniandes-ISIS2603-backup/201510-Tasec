@@ -45,5 +45,5 @@ public interface IProveedorLogic {
 
     public void updateProveedor(ProveedorDTO detail);
     
-    public void agregarSevicioCatalogo(ServicioDTO detail );
+    public void agregarServicioCatalogo(ProveedorDTO detail );
 }

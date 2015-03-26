@@ -1,11 +1,11 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.entity;
+package co.edu.uniandes.csw.TASEC.Administrador.logic.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class ClienteEntity {
+public class AdministradorEntity {
 
     @Id
     @GeneratedValue(generator = "Country")

@@ -1,8 +1,9 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
+package co.edu.uniandes.csw.TASEC.cliente.logic.dto;
 
 import co.edu.uniandes.csw.TASEC.Usuario.logic.dto.UsuarioDTO;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlRootElement;
+import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 
 @XmlRootElement
 public class ClienteDTO extends UsuarioDTO {

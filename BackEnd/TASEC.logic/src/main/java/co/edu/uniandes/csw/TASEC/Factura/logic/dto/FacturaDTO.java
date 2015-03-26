@@ -1,14 +1,12 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
+package co.edu.uniandes.csw.TASEC.Factura.logic.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ClienteDTO {
+public class FacturaDTO {
     private Long id;
-
-    private String name;
-
-    private Integer population;
+    private Integer totalAPagar;
+    private String fecha;
 
     public Long getId() {
         return id;
@@ -18,19 +16,19 @@ public class ClienteDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public Integer getPopulation() {
-        return population;
+    public Integer getTotalAPagar() {
+        return totalAPagar;
     }
 
-    public void setPopulation(Integer population) {
-        this.population = population;
+    public void setTotalAPagar(Integer totalAPagar) {
+        this.totalAPagar = totalAPagar;
     }
 }

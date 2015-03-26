@@ -30,21 +30,21 @@ package co.edu.uniandes.csw.TASEC.Factura.logic.api;
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.api.*;
 import co.edu.uniandes.csw.TASEC.Servicio.logic.api.*;
 import co.edu.uniandes.csw.TASEC.Administrador.logic.api.*;
-import co.edu.uniandes.csw.TASEC.proveedor.logic.dto.ProveedroDTO;
-import co.edu.uniandes.csw.TASEC.proveedor.logic.dto.ProveedorPageDTO;
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaPageDTO;
 import java.util.List;
 
 public interface IFacturaLogic {
 
-    public PaqueteServiciosDTO createPaqueteServicios(PaqueteServiciosDTO detail);
+    public FacturaDTO createFactura(FacturaDTO detail);
 
-    public List<PaqueteServiciosDTO> getPaqueteServicios();
+    public List<FacturaDTO> getFactura();
 
-    public PaqueteServiciosPageDTO getPaqueteServicios(Integer page, Integer maxRecords);
+    public FacturaPageDTO getFactura(Integer page, Integer maxRecords);
 
-    public PaqueteServiciosDTO getPaqueteServicios(Long id);
+    public FacturaDTO getFactura(Long id);
 
-    public void deletePaqueteServicios(Long id);
+    public void deleteFactura(Long id);
 
-    public void updatePaqueteServicios(PaqueteServiciosDTO detail);
+    public void updateFactura(FacturaDTO detail);
 }

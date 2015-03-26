@@ -3,37 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.TASEC.Cliente.logic.converter;
+package co.edu.uniandes.csw.TASEC.Factura.logic.converter;
 
 
 import java.util.ArrayList;
 import java.util.List;
-
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaPageDTO;
+import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 /**
  *
  * @author afesguerra
  */
-public class ClienteConverter {
-    public static ClienteDTO entity2PersistenceDTO(ClienteEntity entity) {
+public class FacturaConverter {
+    public static FacturaDTO entity2PersistenceDTO(FacturaEntity entity) {
         if (entity != null) {
-            ClienteDTO dto = new ClienteDTO();
+            FacturaDTO dto = new FacturaDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
-            dto.setPopulation(entity.getPopulation());
+            dto.setFecha(entity.getFecha());
+            dto.setTotalAPagar(entity.getTotalAPagar());
             return dto;
         } else {
             return null;
         }
     }
 
-    public static ClienteEntity persistenceDTO2Entity(ClienteDTO dto) {
+    public static FacturaEntity persistenceDTO2Entity(FacturaDTO dto) {
         if (dto != null) {
-            ClienteEntity entity = new ClienteEntity();
+            FacturaEntity entity = new FacturaEntity();
             entity.setId(dto.getId());
 
-            entity.setName(dto.getName());
+            entity.setFecha(dto.getFecha());
 
-            entity.setPopulation(dto.getPopulation());
+            entity.setTotalAPagar(dto.getTotalAPagar());
 
             return entity;
         } else {
@@ -41,17 +43,17 @@ public class ClienteConverter {
         }
     }
 
-    public static List<CountryDTO> entity2PersistenceDTOList(List<CountryEntity> entities) {
-        List<CountryDTO> dtos = new ArrayList<CountryDTO>();
-        for (CountryEntity entity : entities) {
+    public static List<FacturaDTO> entity2PersistenceDTOList(List<FacturaEntity> entities) {
+        List<FacturaDTO> dtos = new ArrayList<FacturaDTO>();
+        for (FacturaEntity entity : entities) {
             dtos.add(entity2PersistenceDTO(entity));
         }
         return dtos;
     }
 
-    public static List<CountryEntity> persistenceDTO2EntityList(List<CountryDTO> dtos) {
-        List<CountryEntity> entities = new ArrayList<CountryEntity>();
-        for (CountryDTO dto : dtos) {
+    public static List<FacturaEntity> persistenceDTO2EntityList(List<FacturaDTO> dtos) {
+        List<FacturaEntity> entities = new ArrayList<FacturaEntity>();
+        for (FacturaDTO dto : dtos) {
             entities.add(persistenceDTO2Entity(dto));
         }
         return entities;

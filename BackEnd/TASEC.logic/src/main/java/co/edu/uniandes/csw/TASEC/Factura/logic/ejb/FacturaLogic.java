@@ -1,10 +1,10 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.ejb;
+package co.edu.uniandes.csw.TASEC.Factura.logic.ejb;
 
-import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.converter.ClienteConverter;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
+import co.edu.uniandes.csw.TASEC.Factura.logic.api.IFacturaLogic;
+import co.edu.uniandes.csw.TASEC.Factura.logic.converter.FacturaConverter;
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaPageDTO;
+import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -14,23 +14,23 @@ import javax.persistence.Query;
 
 @Stateless 
 @LocalBean
-public class ClienteLogic implements IClienteLogic{
+public class FacturaLogic implements IFacturaLogic{
 
-    @PersistenceContext(unitName = "SportClassPU")
+    @PersistenceContext(unitName = "FacturaClassPU")
     protected EntityManager entityManager;
 
-    public ClienteDTO createCountry(ClienteDTO country) {
-        ClienteEntity entity = ClienteConverter.persistenceDTO2Entity(country);
+    public FacturaDTO createFactura(FacturaDTO country) {
+        FacturaEntity entity = FacturaConverter.persistenceDTO2Entity(country);
         entityManager.persist(entity);
-        return ClienteConverter.entity2PersistenceDTO(entity);
+        return FacturaConverter.entity2PersistenceDTO(entity);
     }
 
-    public List<ClienteDTO> getCountries() {
+    public List<FacturaDTO> getFactura() {
         Query q = entityManager.createQuery("select u from CountryEntity u");
-        return ClienteConverter.entity2PersistenceDTOList(q.getResultList());
+        return FacturaConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
-    public ClientePageDTO getCountries(Integer page, Integer maxRecords) {
+    public FacturaPageDTO getFactura(Integer page, Integer maxRecords) {
         Query count = entityManager.createQuery("select count(u) from CountryEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
@@ -39,33 +39,23 @@ public class ClienteLogic implements IClienteLogic{
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);
         }
-        ClientePageDTO response = new ClientePageDTO();
+        FacturaPageDTO response = new FacturaPageDTO();
         response.setTotalRecords(regCount);
-        response.setRecords(ClienteConverter.entity2PersistenceDTOList(q.getResultList()));
+        response.setRecords(FacturaConverter.entity2PersistenceDTOList(q.getResultList()));
         return response;
     }
 
-    public ClienteDTO getCountry(Long id) {
-        return ClienteConverter.entity2PersistenceDTO(entityManager.find(ClienteEntity.class, id));
+    public FacturaDTO getFactura(Long id) {
+        return FacturaConverter.entity2PersistenceDTO(entityManager.find(FacturaEntity.class, id));
     }
 
-    public void deleteCountry(Long id) {
-        ClienteEntity entity = entityManager.find(ClienteEntity.class, id);
+    public void deleteFactura(Long id) {
+        FacturaEntity entity = entityManager.find(FacturaEntity.class, id);
         entityManager.remove(entity);
     }
 
-    public void updateCountry(ClienteDTO country) {
-        ClienteEntity entity = entityManager.merge(ClienteConverter.persistenceDTO2Entity(country));
-        ClienteConverter.entity2PersistenceDTO(entity);
-    }
-
-    public ClienteDTO getMostPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MAX(v.population) from CountryEntity v)");
-        return ClienteConverter.entity2PersistenceDTO((ClienteEntity)query.getSingleResult());
-    }
-
-    public ClienteDTO getLeastPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MIN(v.population) from CountryEntity v)");
-        return ClienteConverter.entity2PersistenceDTO((ClienteEntity)query.getSingleResult());
+    public void updateFactura(FacturaDTO country) {
+        FacturaEntity entity = entityManager.merge(FacturaConverter.persistenceDTO2Entity(country));
+        FacturaConverter.entity2PersistenceDTO(entity);
     }
 }

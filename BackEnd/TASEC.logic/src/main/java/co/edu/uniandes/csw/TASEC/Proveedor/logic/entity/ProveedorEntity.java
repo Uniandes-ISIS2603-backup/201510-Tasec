@@ -30,17 +30,18 @@ package co.edu.uniandes.csw.TASEC.Proveedor.logic.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.entity.ServicioSimpleEntity;
+import java.util.ArrayList;
 
 @Entity
 public class ProveedorEntity {
 
     @Id
-    @GeneratedValue(generator = "Sport")
+    @GeneratedValue(generator = "Proveedor")
     private Long id;
-    private String name;
-    private Integer minAge;
-    private Integer maxAge;
-    private Long country;
+    private String descripcion;
+    private Integer ventas;
+    private ArrayList<ServicioSimpleEntity>servicios;
 
     public Long getId() {
         return id;
@@ -50,35 +51,26 @@ public class ProveedorEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public Integer getMinAge() {
-        return minAge;
+    public Integer getVentas() {
+        return ventas;
+    }
+    public void setVentas(Integer ventas) {
+        this.ventas = ventas;
+    }
+    public ArrayList<ServicioSimpleEntity> getServicios() {
+        return servicios;
     }
 
-    public void setMinAge(Integer minAge) {
-        this.minAge = minAge;
+    public void setServicios(ArrayList<ServicioSimpleEntity> servicios) {
+        this.servicios = servicios;
     }
-
-    public Integer getMaxAge() {
-        return maxAge;
-    }
-
-    public void setMaxAge(Integer maxAge) {
-        this.maxAge = maxAge;
-    }
-
-    public Long getCountry() {
-        return country;
-    }
-
-    public void setCountry(Long country) {
-        this.country = country;
-    }
+    
 }
