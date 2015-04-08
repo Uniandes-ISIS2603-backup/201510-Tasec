@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<div class="row">
+                    <div class="col-lg-6 ">
+                        <h2>Registrese</h2>
+                        
+                        <form name="registrarCForm" role="form" ng-controller="registrarCliente as regClienteCtrl" ng-submit="registrarCForm.$valid && regClienteCtrl.addCliente(cliente)" novalidate>
+
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input class="form-control" placeholder="Primer nombre" required 
+                                       ng-model="cliente.nombre" >
+                            </div>
+                            <div class="form-group has-success">
+                                <label class="control-label" for="inputSuccess">Ingrese un correo valido</label>
+                                <input type="email" class="form-control" id="inputSuccess" placeholder="ejemplo@tasec.com" required 
+                                       ng-model="cliente.correo" >
+                            </div>
+                            <div class="form-group">
+                                <label>Ingrese su edad:</label>
+                                <input type="number" class="form-control" placeholder="Porfavor ingrese su edad" required 
+                                       ng-model="cliente.edad">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label class="control-label" for="inputWarning">Ingrese una contraseña  <i> (Al menos 6 caracteres) </i></label>
+                                <input type="password" class="form-control" id="inputWarning" placeholder="contraseña" required 
+                                       ng-model="cliente.contrasena1" ng-minlength='6'>
+                            </div>
+                            <div class="form-group has-warning">
+                                <label class="control-label" for="inputWarning">Repetir contraseña</label>
+                                <input type="password" class="form-control" id="inputWarning" placeholder="contraseña" required 
+                                       ng-model="cliente.contrasena2" ng-minlength='6'>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary"
+                                    ng-disabled="registrarCForm.$invalid">Registrar</button>
+                        </form>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Ya eres parte de Tasec?</h2>
+
+                        <form name="loginCliente" role="form" ng-controller="registrarCliente as regClienteCtrl" ng-submit="loginCliente.$valid && regClienteCtrl.login(cliente)" novalidate>
+
+                            <div class="form-group">
+                                <label>Log-in</label>
+                                
+                                <input type="email" class="form-control" placeholder="Email de registro" autofocus required 
+                                       ng-model="cliente.usuario">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label class="control-label" for="inputWarning">Contraseña</label>
+                                <input type="password" class="form-control" id="inputSuccess" placeholder="contraseña" required
+                                       ng-model="cliente.password" >
+                            </div>
+
+                        </form>
+
+                        <button type="submit" class="btn btn-primary"
+                                ng-disabled="loginCliente.$invalid">Entrar</button><br><br>
+
+                        <a ng-click='mostrarClientes=false;' href class="alert-link">Haga click aqui para volver a la página principal</a>
+
+                    </div>
+                </div>
+                    
+                <!-- /.row -->
+</html>
