@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+<head>
+         <link href="src/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+         <script src="src/assets/libs/jquery-2.1.3.min.js"></script>
+         <script src="src/assets/libs/underscore-min.js"></script>
+         <script src="src/assets/libs/angular.min.js"></script>
+         <script src="src/assets/libs/angular-route.min.js"></script>
+         <script src="src/assets/libs/angular-mocks.js"></script>
+         <script src="src/assets/libs/restangular.min.js"></script>
+         <script src="src/assets/libs/angular-animate.min.js"></script>
+         <script src="js/ngFx/dist/ngFx.min.js"></script>
+         <link href="src/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+         <script src="js/bootstrap.min.js"></script>
+
+
+
+         <!--Aplicación-->
+         <script src="src/app.js"></script>
+         
+         <!--Mocks-->
+         <script src="src/shared/mocks/mock.mod.js"></script>
+         <script src="src/shared/mocks/mock.svc.js"></script>
+         
+         <!-- Crud-->
+         <script src="src/shared/crud/crud.mod.js"></script>
+         <script src="src/shared/crud/crud.svc.js"></script>
+         
+         <!--Controlador de Servicio-->
+         <script src="src/modules/servicio/servicio.mod.js"></script>
+         <script src="src/modules/servicio/servicio.ctrl.js"></script>
+         <script src="src/modules/servicio/servicio.svc.js"></script>
+
+
+         
+         <!-- Controlador de Registrar Proveedor-->
+         <script src="src/modules/registrarProveedor/registrarProveedor.mod.js"></script>         
+         <script src="src/modules/registrarProveedor/registrarProveedor.ctrl.js"></script>
+         <script src="src/modules/registrarProveedor/registrarProveedor.svc.js"></script>
+         
+         <!-- Controlador de Registrar Cliente-->
+         <script src="src/modules/registrarCliente/registrarCliente.ctrl.js"></script>
+
+         
+         <!--Controlador de Admin-->
+         <script src="src/modules/administrador/admin.mod.js"></script>         
+         <script src="src/modules/administrador/admin.ctrl.js"></script>
+         <script src="src/modules/administrador/admin.svc.js"></script>
+         
+         <!-- Actualizar info -->
+         <script src="src/modules/actualizarInfo/actualizarInfo.ctrl.js"></script>
+         
+         
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-include="'views/nav.html'"></nav>
+</head>
+
+<body>
+    <div ng-view></div> 
+</body>
+</html>
+
+    
