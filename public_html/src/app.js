@@ -24,6 +24,8 @@
                 templateUrl: 'src/modules/administrador/administrarCatalogo.html'
             }).when('/buscar',{
                 templateUrl:'src/modules/buscar/buscar.html'
+            }).when('/noticias',{
+                templateUrl:'src/modules/noticias/noticias.html'
             }).otherwise('/',{
                 redirectTo:'src/modules/home/home.html'
             });  

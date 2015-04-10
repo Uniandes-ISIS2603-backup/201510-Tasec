@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+    
+    <title>Registrarse en Ambientour</title>
+
+    <!-- Custom CSS -->
+    <link href="src/assets/css/sb-admin.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Sistema de noticias
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Pagina principal</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-edit"></i> Noticias
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row" ng-hide='mostrarNoticias || modificarNoticias'>
+                    <div class="col-lg-2">
+                        <p><a class="btn btn-success btn-large" ng-click='mostrarNoticias=true;' class="alert-link">Deseo ver las noticias</a></p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p><a class="btn btn-info btn-large" ng-click='modificarNoticias=true;' class="alert-link">Deseo modificar las noticias</a></p>                        
+                    </div>
+                </div>
+                <div ng-show='mostrarNoticias' ng-include="'src/modules/noticias/forms/verNoticias.html'"></div>
+                <div ng-show='modificarNoticias' ng-include="'src/modules/noticias/forms/modificarNoticias.html'"></div>
+                
+       
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+</body>
+
+</html>
