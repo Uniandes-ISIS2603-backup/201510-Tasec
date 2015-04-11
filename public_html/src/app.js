@@ -26,7 +26,7 @@
                 templateUrl:'src/modules/buscar/buscar.html'
             }).when('/noticias',{
                 templateUrl:'src/modules/noticias/noticias.html'
-                }).when('/calificacion',{
+            }).when('/calificacion',{
                 templateUrl:'src/modules/calficacion.html'
             }).otherwise('/',{
                 redirectTo:'src/modules/home/home.html'
