@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.TASEC.service;
 import co.edu.uniandes.csw.TASEC.Servicio.logic.api.IServicioLogic;
 import co.edu.uniandes.csw.TASEC.Servicio.logic.dto.ServicioDTO;
 import co.edu.uniandes.csw.TASEC.Servicio.logic.dto.ServicioPageDTO;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -50,6 +51,11 @@ public class ServicioService {
     @Path("{id}")
     public ServicioDTO getServicio(@PathParam("id") Long id) {
         return ssLogic.getServicio(id);
+    }
+    
+    @GET
+    public List<ServicioDTO> getServicio() {
+        return ssLogic.getServicios();
     }
 
     @PUT
