@@ -28,6 +28,8 @@
                 templateUrl:'src/modules/noticias/noticias.html'
             }).when('/calificacion',{
                 templateUrl:'src/modules/calficacion.html'
+            }).when('/contacto',{
+                templateUrl:'src/modules/contacto/contacto.html'
             }).otherwise('/',{
                 redirectTo:'src/modules/home/home.html'
             });  
