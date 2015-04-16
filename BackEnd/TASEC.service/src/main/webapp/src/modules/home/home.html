@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ambientour</title>
+
+</head>
+
+<body>
+    <div ng-controller="mainController" ng-init="tipo='normal'"></div>
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide" style="height: 305px">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+            <li data-target="#myCarousel" data-slide-to="6"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('files/images/amazonas.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Leticia</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('files/images/rio.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Rio de Janeiro</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('files/images/ejeCafetero.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Eje Cafetero</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('files/images/carousel2.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Tour por la Nasa</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('files/images/teoti.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Teotihuacan</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('files/images/machu.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Machu Picchu</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <span class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </span>
+        <span class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </span>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Bienvenido a Ambientour
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> ¿Quienes somos?</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Ambientour es un proyecto diseñado y creado por los estudiantes del grupo TASEC, del curso desarrollo de software en equipo. El equipo está conformado por: <br> Juan Pablo Arévalo. <br> Jose Cárdenas. <br> Fabio Espinosa. <br> Felipe Sabogal.</p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> Qué somos?</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Ambientour consiste en un medio de compra de servicios y paquetes para turismo ecológico, el proyecto está centrado en el uso de la pagina como medio principal para incentivar a la gente al turismo ecológico.</p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-compass"></i> Mejor experiencia con el usuario</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>La experiencia con el usuario esta diseñada para un manejo sencillo de la interfaz web, optimizando el uso de herramientas como angular para hacer mas agradable la visita de nuestra página Ambientour </p>
+                        <a href="#" class="btn btn-default">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Portafolio de paquetes y servicios</h2>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                     <center style="color:gray"><h3>En canoa por el Amazonas</h3>
+                    <img style="height:200px;width:350px" class="img-responsive img-portfolio img-hover" src="files/images/canoa.jpg" alt=""></center>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <center style="color:gray"><h3>Nada junto a los delfines</h3>
+                   <img style="height:200px;width:350px" class="img-responsive img-portfolio img-hover" src="files/images/nado.jpg" alt=""></center>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                     <center style="color:gray"><h3>Convive con los Wayuu</h3>
+                    <img style="height:200px;width:350px" class="img-responsive img-portfolio img-hover" src="files/images/wayuu.jpg" alt=""></center>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <center style="color:gray"><h3>Conoce el parque Amacayacu</h3>
+                   <img style="height:200px;width:350px" class="img-responsive img-portfolio img-hover" src="files/images/amacayacu.jpg" alt=""></center>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                     <center style="color:gray"><h3>Bungee Viaducto el Tigre</h3>
+                    <img style="height:200px;width:350px" class="img-responsive img-portfolio img-hover" src="files/images/bungee.jpg" alt=""></center>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="portfolio-item.html">
+                    <center style="color:gray"><h3>Catedral de sal de Zipaquirá</h3>
+                   <img style="height:200px;width:350px" class="img-responsive img-portfolio img-hover" src="files/images/catsal.jpg" alt=""></center>
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Beneficios de ser proveedor de Ambientour</h2>
+            </div>
+            <div class="col-md-6">
+                <p>Los principales beneficios al ser proveedor de la plataforma Ambientour son:</p>
+                <ul>
+                    <li><strong>Permitir a los clientes conocer tus servicios</strong>
+                    </li>
+                    <li>Descuentos por numero de servicios prestados</li>
+                    <li>Publicidad garantizada de todos los servicios por popularidad</li>
+                    <li>Rating y retroalimentación por parte de los clientes y administradores</li>
+                </ul>
+                <p>Al convertirte en un proovedor de Ambientour, ademas de tener una herramienta mas para promocionar tus servicios, tenemos importantes beneficios que te harán quedarte con Ambientour como tu plataforma tecnológica de promoción, para mas informacion registrate como proveedor en la barra superior de la pagina.</p>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="files/images/ecoturismo.bmp" alt="">
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Ambientour 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    
+    
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    });
+    </script>
+    
+
+
+</body>
+
+</html>

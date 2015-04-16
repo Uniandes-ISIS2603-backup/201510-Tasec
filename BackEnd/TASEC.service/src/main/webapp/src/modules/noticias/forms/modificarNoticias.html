@@ -1,0 +1,109 @@
+<div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Administrar noticias <small>Funcion exclusiva del admin</small>
+                        </h1>
+                        
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <i class="fa fa-info-circle"></i>  <strong>Bienvenido Administrador</strong> <a href="#/" class="alert-link">Haga click aqui para volver a la página principal</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <h3>Administrar noticias</h3>
+                <div class="row" ng-controller="servicioCtrl as servicioCtrl">
+	<div id="header">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Noticias</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="country-navbar">
+                                        <button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+					<button class="btn btn-default navbar-btn" ng-hide="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div ng-hide="servicioCtrl.editMode">
+            
+		
+            <table ng-show="records.length" class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Hora de la noticia</th>
+                                        <th>Acciones </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="record in records">
+					<td>{{record.nombre}}</td>
+					<td>{{record.descripcion}}</td>
+					<td>{{record.hora}}</td>
+                                        <td><button class="btn btn-default btn-sm" ng-click="servicioCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+                                            <button class="btn btn-default btn-sm" ng-click="servicioCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Borrar</button>   
+                                        </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+        
+	<div ng-show="servicioCtrl.editMode">
+            
+		<form name="countryForm" role="form">
+			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input id="nombre" class="form-control" type="text" ng-model="currentRecord.nombre"/>
+			</div>
+			<div class="form-group">
+				<label for="descripcion">Descripción </label>
+				<input id="descripcion" class="form-control" type="text"  ng-model="currentRecord.descripcion"/>
+			</div>
+			<div class="form-group">
+				<label for="calificacion">Hora</label>
+                                <input id="calificacion" class="form-control" type="time" ng-model="currentRecord.hora"/>
+			</div>
+                       
+		</form>
+            <button class="btn btn-default navbar-btn" ng-show="servicioCtrl.editMode" ng-click="servicioCtrl.createRecord()"><span class="glyphicon glyphicon-airplane"></span> Crear nueva noticia</button>
+	</div>
+</div>
+                        
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Morris Charts JavaScript -->
+    <script src="src/assets/plugins/raphael/raphael.min.js"></script>
+    <script src="src/assets/plugins/morrisjs/morris.min.js"></script>
+    <script src="src/assets/plugins/morrisjs/morris-data.js"></script>
