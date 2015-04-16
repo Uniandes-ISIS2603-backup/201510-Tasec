@@ -19,7 +19,11 @@
     registrar.controller('registrarCliente', ['$scope', function ($scope) {
             
         }]);
-    
+    registrar.constant('registrar.skipMock', true);
+
+     registrar.config(['registrar.context', 'MockModule.urlsProvider','registrar.skipMock', function (context, urlsProvider, skipMock) {
+             urlsProvider.registerUrl(context, skipMock);
+         }]);
     
     registrar.service('clienteservice', ['CRUDBase','cliente.context', function(CRUDBase, context){
             this.url = context;
