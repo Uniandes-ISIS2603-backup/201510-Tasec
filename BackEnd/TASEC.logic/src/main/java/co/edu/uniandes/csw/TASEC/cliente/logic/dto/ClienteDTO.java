@@ -1,4 +1,4 @@
-package co.edu.uniandes.csw.TASEC.cliente.logic.dto;
+package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
 
 import co.edu.uniandes.csw.TASEC.Usuario.logic.dto.UsuarioDTO;
 import java.util.ArrayList;

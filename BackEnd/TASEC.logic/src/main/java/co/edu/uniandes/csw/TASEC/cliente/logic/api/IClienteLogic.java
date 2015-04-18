@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.TASEC.cliente.logic.api;
+package co.edu.uniandes.csw.TASEC.Cliente.logic.api;
 
-import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
 import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
 import java.util.Date;

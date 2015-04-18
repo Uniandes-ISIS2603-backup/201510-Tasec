@@ -1,5 +1,4 @@
 package co.edu.uniandes.csw.TASEC.Factura.logic.entity;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
