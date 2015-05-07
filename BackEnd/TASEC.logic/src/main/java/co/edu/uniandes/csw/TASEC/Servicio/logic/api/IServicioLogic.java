@@ -44,4 +44,6 @@ public interface IServicioLogic {
     public void deleteServicio(Long id);
 
     public void updateServicio(ServicioDTO detail);
+    
+    public List<ServicioDTO> getServiciobyCategoria(String categoria);
 }

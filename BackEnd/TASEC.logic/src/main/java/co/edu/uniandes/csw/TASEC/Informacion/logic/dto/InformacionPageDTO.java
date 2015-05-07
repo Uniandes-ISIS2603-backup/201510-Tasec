@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.TASEC.Publicacion.logic.dto;
-
-import java.util.List;
+package co.edu.uniandes.csw.TASEC.Informacion.logic.dto;
 
 /**
  *
  * @author josedanielcardenasrincon
  */
-public class PublicacionPageDTO {
+import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class InformacionPageDTO {
+    
     private Long totalRecords;
 
-    private List<PublicacionDTO> records;
+    private List<InformacionDTO> records;
 
     public Long getTotalRecords() {
         return totalRecords;
@@ -24,11 +27,11 @@ public class PublicacionPageDTO {
         this.totalRecords = totalRecords;
     }
 
-    public List<PublicacionDTO> getRecords() {
+    public List<InformacionDTO> getRecords() {
         return records;
     }
 
-    public void setRecords(List<PublicacionDTO> records) {
+    public void setRecords(List<InformacionDTO> records) {
         this.records = records;
     }
 }

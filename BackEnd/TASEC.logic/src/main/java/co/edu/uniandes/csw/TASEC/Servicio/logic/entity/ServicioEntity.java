@@ -37,7 +37,7 @@ import javax.persistence.Temporal;
 public class ServicioEntity {
 
     @Id
-    @GeneratedValue(generator = "Proveedor")
+    @GeneratedValue(generator = "Servicio")
     private Long id;
     private String name;
     private String descripcion;
@@ -47,6 +47,7 @@ public class ServicioEntity {
     private Date fecha;
     private boolean hayOferta;
     private Integer precioOferta;
+    private String categoria;
 
     public Long getId() {
         return id;
@@ -109,6 +110,13 @@ public class ServicioEntity {
 
     public void setHayOferta(boolean hayOferta) {
         this.hayOferta = hayOferta;
+    }
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     

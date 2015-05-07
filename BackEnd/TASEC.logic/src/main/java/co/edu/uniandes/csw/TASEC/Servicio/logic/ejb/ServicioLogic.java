@@ -87,4 +87,9 @@ public class ServicioLogic implements IServicioLogic {
         ServicioEntity entity = entityManager.merge(ServicioConverter.persistenceDTO2Entity(servicio));
         ServicioConverter.entity2PersistenceDTO(entity);
     }
+
+    public List<ServicioDTO> getServiciobyCategoria(String categoria) {
+        Query query=entityManager.createQuery("select u from ServicioEntity u where u.categoria= "+"'"+categoria+"'");
+        return ServicioConverter.entity2PersistenceDTOList(query.getResultList());
+    }
 }

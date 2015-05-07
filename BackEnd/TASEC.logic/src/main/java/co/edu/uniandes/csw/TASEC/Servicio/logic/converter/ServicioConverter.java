@@ -46,6 +46,7 @@ public class ServicioConverter {
             dto.setHayOferta(entity.getHayOferta());
             dto.setPrecio(entity.getPrecio());
             dto.setPrecioOferta(entity.getPrecioOferta());
+            dto.setCategoria(entity.getCategoria());
 
             return dto;
         } else {
@@ -64,6 +65,7 @@ public class ServicioConverter {
             entity.setHayOferta(dto.getHayOferta());
             entity.setPrecio(dto.getPrecio());
             entity.setPrecioOferta(dto.getPrecioOferta());
+            entity.setCategoria(dto.getCategoria());
 
             return entity;
         } else {
