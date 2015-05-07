@@ -16,7 +16,7 @@ import javax.persistence.Query;
 @LocalBean
 public class AdministradorLogic implements IAdministradorLogic{
 
-    @PersistenceContext(unitName = "AdministradorClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
 
     public AdministradorDTO createAdministrador(AdministradorDTO detail) {

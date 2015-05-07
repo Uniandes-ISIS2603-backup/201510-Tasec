@@ -24,7 +24,7 @@ import javax.persistence.Query;
 @Stateless 
 @LocalBean
 public class PublicacionLogic implements IPublicacionLogic{
-    @PersistenceContext(unitName = "PublicacionClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
 
     public PublicacionDTO createPublicacion(PublicacionDTO detail) {

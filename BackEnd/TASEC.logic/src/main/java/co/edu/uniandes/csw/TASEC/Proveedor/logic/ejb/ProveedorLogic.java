@@ -46,7 +46,7 @@ import javax.persistence.Query;
 @LocalBean
 public class ProveedorLogic implements IProveedorLogic {
 
-    @PersistenceContext(unitName = "ProveedorClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
 
     public ProveedorDTO createProveedor(ProveedorDTO sport) {

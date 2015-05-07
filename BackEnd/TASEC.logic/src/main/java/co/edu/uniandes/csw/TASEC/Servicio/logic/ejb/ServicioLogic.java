@@ -45,7 +45,7 @@ import javax.persistence.Query;
 @LocalBean
 public class ServicioLogic implements IServicioLogic {
 
-    @PersistenceContext(unitName = "ServicioClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
 
     public ServicioDTO createServicio(ServicioDTO servicio) {

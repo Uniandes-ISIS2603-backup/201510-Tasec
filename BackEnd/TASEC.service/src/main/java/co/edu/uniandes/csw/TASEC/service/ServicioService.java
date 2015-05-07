@@ -53,10 +53,10 @@ public class ServicioService {
         return ssLogic.getServicio(id);
     }
     
-    @GET
-    public List<ServicioDTO> getServicio() {
-        return ssLogic.getServicios();
-    }
+//    @GET
+//    public List<ServicioDTO> getServicio() {
+//        return ssLogic.getServicios();
+//    }
 
     @PUT
     public void updateServicio(@PathParam("id") Long id, ServicioDTO ss) {

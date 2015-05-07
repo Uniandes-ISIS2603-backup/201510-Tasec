@@ -52,10 +52,10 @@ public class ServicioSimpleservice {
     public ServicioSimpleDTO getServicioSimple(@PathParam("id") Long id) {
         return ssLogic.getServicioSimple(id);
     }
-    @GET
-    public List<ServicioSimpleDTO> getServicioSimple() {
-        return ssLogic.getServiciosSimples();
-    }
+//    @GET
+//    public List<ServicioSimpleDTO> getServicioSimple() {
+//        return ssLogic.getServiciosSimples();
+//    }
 
     @PUT
     public void updateServicioSimple(@PathParam("id") Long id, ServicioSimpleDTO ss) {

@@ -47,7 +47,7 @@ import javax.persistence.Query;
 @LocalBean
 public class UsuarioLogic implements IUsuarioLogic {
 
-    @PersistenceContext(unitName = "UsuarioClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
 
     public UsuarioDTO createUsuario(UsuarioDTO usuario) {

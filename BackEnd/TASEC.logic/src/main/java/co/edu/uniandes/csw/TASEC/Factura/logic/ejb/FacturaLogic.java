@@ -16,7 +16,7 @@ import javax.persistence.Query;
 @LocalBean
 public class FacturaLogic implements IFacturaLogic{
 
-    @PersistenceContext(unitName = "FacturaClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
 
     public FacturaDTO createFactura(FacturaDTO country) {

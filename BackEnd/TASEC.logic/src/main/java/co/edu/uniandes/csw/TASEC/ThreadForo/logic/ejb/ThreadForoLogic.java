@@ -21,7 +21,7 @@ import javax.persistence.Query;
  */
 public class ThreadForoLogic implements IThreadForoLogic{
 
-    @PersistenceContext(unitName = "ThreadForoClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
     
     public ThreadForoDTO createThreadForo(ThreadForoDTO detail) {

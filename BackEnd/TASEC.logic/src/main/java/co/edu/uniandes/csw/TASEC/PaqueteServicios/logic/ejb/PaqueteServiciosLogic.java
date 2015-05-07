@@ -16,7 +16,7 @@ import javax.persistence.Query;
 @LocalBean
 public class PaqueteServiciosLogic implements IPaqueteServiciosLogic{
 
-    @PersistenceContext(unitName = "PaqueteServiciosClassPU")
+    @PersistenceContext(unitName = "TasecClassPU")
     protected EntityManager entityManager;
 
     public PaqueteServiciosDTO createPaqueteServicios(PaqueteServiciosDTO paquete) {

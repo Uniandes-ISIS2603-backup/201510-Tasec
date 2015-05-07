@@ -52,10 +52,10 @@ public class PaqueteServiciosService {
     public PaqueteServiciosDTO getPaqueteServicios(@PathParam("id") Long id) {
         return paqLogic.getPaqueteServicios(id);
     }
-    @GET
-    public List<PaqueteServiciosDTO> getServicio() {
-        return paqLogic.getPaquetesServicios();
-    }
+//    @GET
+//    public List<PaqueteServiciosDTO> getServicio() {
+//        return paqLogic.getPaquetesServicios();
+//    }
 
     @PUT
     public void updatePaqueteServicios(@PathParam("id") Long id, PaqueteServiciosDTO admin) {
