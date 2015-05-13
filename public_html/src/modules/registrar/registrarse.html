@@ -34,7 +34,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Registrar</a>
+                                <i class="fa fa-dashboard"></i>  <a href="#registrarse">Registrar</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> Registro
@@ -51,8 +51,8 @@
                         <p><a class="btn btn-warning btn-large" ng-click='mostrarProveedores=true;' class="alert-link">Soy un Proveedor de Servicios</a></p>                        
                     </div>
                 </div>
-                <div ng-show='mostrarClientes' ng-include="'src/modules/registrar/forms/proveedorRegistro.html'"></div>
-                <div ng-show='mostrarProveedores' ng-include="'src/modules/registrar/forms/clienteRegistro.html'"></div>
+                <div ng-show='mostrarClientes' ng-include="'src/modules/registrar/forms/clienteRegistro.html'"></div>
+                <div ng-show='mostrarProveedores' ng-include="'src/modules/registrar/forms/proveedorRegistro.html'"></div>
 
 
             </div>

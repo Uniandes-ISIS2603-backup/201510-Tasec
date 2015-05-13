@@ -5,14 +5,14 @@
     (function () {
 
         var mainApp = angular.module('mainApp', 
-        ['ngRoute', 'registrar']);
+        ['ngRoute', 'registrar','mensajes']);
 
         //Configuración de navegación entre rutas
         //Determina qué template cargar cuando el navegador busque una URL específica
         mainApp.config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/', {
                 templateUrl: 'src/modules/home/home.html'
-            }).when('/admin',{
+            }).when('/registrarse',{
                 templateUrl: 'src/modules/registrar/registrarse.html'
             }).when('/item',{
                 templateUrl: 'src/modules/item/item.html'
@@ -20,26 +20,29 @@
                 templateUrl: 'src/modules/catalogo/catalogo.html'
             }).when('/registrarse',{
                 templateUrl: 'src/modules/registrar/registrarse.html'
+            }).when('/actualizarInfo',{
+                 templateUrl: 'src/modules/actualizarInfo/actualizarInfo.html'
             }).when('/administrarCatalogo',{
                 templateUrl: 'src/modules/administrador/administrarCatalogo.html'
             }).when('/buscar',{
                 templateUrl:'src/modules/buscar/buscar.html'
             }).when('/noticias',{
                 templateUrl:'src/modules/noticias/noticias.html'
+            }).when('/mensajes',{
+                templateUrl:'src/modules/mensajes/mensajes.html'
             }).when('/calificacion',{
                 templateUrl:'src/modules/calficacion.html'
             }).when('/contacto',{
                 templateUrl:'src/modules/contacto/contacto.html'
-            }).otherwise('/',{
+            }).when('/catalogo',{
+                 templateUrl: 'src/modules/catalogo/catalogo.html'
+             }).otherwise('/',{
                 redirectTo:'src/modules/home/home.html'
             });  
         }]);
     
         mainApp.controller('mainController',['$scope', function($scope){
-            
-         
-                       
-            
+
             //usuarios
             //admin, proveedor, cliente
             $scope.setUsuario=function(usuario){$scope.tipo=usuario;}
