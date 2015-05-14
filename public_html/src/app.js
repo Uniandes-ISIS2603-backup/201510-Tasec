@@ -5,7 +5,7 @@
     (function () {
 
         var mainApp = angular.module('mainApp', 
-        ['ngRoute', 'registrar','mensajes']);
+        ['ngRoute', 'registrar','mensajesModule','adminModule']);
 
         //Configuración de navegación entre rutas
         //Determina qué template cargar cuando el navegador busque una URL específica
@@ -36,6 +36,8 @@
                 templateUrl:'src/modules/contacto/contacto.html'
             }).when('/catalogo',{
                  templateUrl: 'src/modules/catalogo/catalogo.html'
+             }).when('/admin',{
+                 templateUrl: 'src/modules/administrador/admin.html'
              }).otherwise('/',{
                 redirectTo:'src/modules/home/home.html'
             });  
@@ -45,11 +47,15 @@
 
             //usuarios
             //admin, proveedor, cliente
-            $scope.setUsuario=function(usuario){$scope.tipo=usuario;}
-            $scope.usuarioActual= function(actual){
-                return $scope.tipo === actual;
+            $scope.setUsuario=function(usuario){
+                    $scope.tipo=usuario;
             }
-            
+            $scope.usuarioActual= function(actual){
+               
+                return $scope.tipo === actual;
+
+            }
+                
             //
             
             this.logout= function(){ this.tipo='normal';}

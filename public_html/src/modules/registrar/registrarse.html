@@ -43,21 +43,18 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <div class="row" ng-hide='mostrarClientes || mostrarProveedores'>
-                    <div class="col-lg-2">
+                <div class="row" ng-hide='mostrarClientes || mostrarProveedores || mostrarAdmin'>
+                    <div class="col-md-4">
                         <p><a class="btn btn-success btn-large" ng-click='mostrarClientes=true;' class="alert-link">Soy Cliente</a></p>
-                    </div>
-                    <div class="col-lg-2">
-                        <p><a class="btn btn-warning btn-large" ng-click='mostrarProveedores=true;' class="alert-link">Soy un Proveedor de Servicios</a></p>                        
+                        <p><a class="btn btn-primary btn-large" ng-click='mostrarAdmin=true;' class="alert-link">Soy administrador</a></p>                        
+                        <p><a class="btn btn-warning btn-large" ng-click='mostrarProveedores=true;' class="alert-link">Soy un Proveedor de Servicios</a></p>
                     </div>
                 </div>
                 <div ng-show='mostrarClientes' ng-include="'src/modules/registrar/forms/clienteRegistro.html'"></div>
+                <div ng-show='mostrarAdmin' ng-include="'src/modules/registrar/forms/adminLogIn.html'"></div>
                 <div ng-show='mostrarProveedores' ng-include="'src/modules/registrar/forms/proveedorRegistro.html'"></div>
-
-
             </div>
             <!-- /.container-fluid -->
-
         </div>
         <!-- /#page-wrapper -->
 

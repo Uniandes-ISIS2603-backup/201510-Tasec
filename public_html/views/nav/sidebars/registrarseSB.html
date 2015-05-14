@@ -1,9 +1,24 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="adminCtrl as adminCtrl">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a ng-click="adminCtrl.setTab('0')" ng-show="adminCtrl.login" href><i class="fa fa-fw fa-dashboard"></i> Estado de tasec</a>                        
+                    </li>
+                    <li>
+                        <a ng-click="adminCtrl.setTab('1')" ng-show="adminCtrl.login" href><i class="fa fa-fw fa-file"></i> Mensajes</a>
+                    </li>
+                    <li>
+                        <a ng-click="adminCtrl.setTab('2')" ng-show="adminCtrl.login" href><i class="fa fa-fw fa-check-circle-o"></i> Validar Proveedores</a>
+                    </li>
+                    <li>
+                        <a ng-click="adminCtrl.setTab('3')" ng-show="adminCtrl.login" href><i class="fa fa-fw fa-check-circle-o"></i> Administrar Catalogo de Servicios</a>
+                    </li>
+                    <li>
+                        <a ng-click="adminCtrl.setTab('4')" ng-show="adminCtrl.login" href><i class="fa fa-fw fa-check-circle-o"></i> Monitoreo de rendimiento</a>
+                    </li>
+                    <li>
+                        {{adminCtrl.tab}}
+                    </li>
 
-</html>
+                </ul>
+            </div>

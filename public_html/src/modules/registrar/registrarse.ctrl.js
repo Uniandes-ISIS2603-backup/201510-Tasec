@@ -15,11 +15,9 @@
             urlsProvider.registerUrl(context);
         }]);
 
-
     registrar.controller('registrarCliente', ['$scope', function ($scope) {
             
         }]);
-    
     
     registrar.service('clienteservice', ['CRUDBase','cliente.context', function(CRUDBase, context){
             this.url = context;

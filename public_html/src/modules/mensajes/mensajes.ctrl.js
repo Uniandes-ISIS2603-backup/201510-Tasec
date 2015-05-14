@@ -6,9 +6,9 @@
 
 
 (function () {
-    var mensajes = angular.module('mensajes', []);
+    var mensajesModule = angular.module('mensajesModule', []);
 
-    mensajes.controller('mensajesController', ['$scope', function ($scope) {
+    mensajesModule.controller('mensajesController', ['$scope', function ($scope) {
             $scope.display="mensajes";
             $scope.setDisplay=function(nDisplay){
                 $scope.display=nDisplay;

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<div class="row">
+                    
+                    <div class="col-lg-6">
+                        <h2>Admin Log-In</h2>
+
+                        <form name="loginAdmin" role="form" ng-controller="mainController as mainCtrl" ng-submit="mainCtrl.setUsuario('admin')" novalidate>
+
+                            <div class="form-group">
+                                <label>Log-in</label>
+                                
+                                <input type="email" class="form-control" placeholder="Email de registro" autofocus required 
+                                       ng-model="admin.usuario">
+                            </div>
+                            <div class="form-group has-warning">
+                                <label class="control-label" for="inputWarning">Contraseña</label>
+                                <input type="password" class="form-control" id="inputSuccess" placeholder="contraseña" required
+                                       ng-model="admin.password" >
+                            </div>
+
+                        </form>
+
+                        <button  type="submit" class="btn btn-primary"
+                                ng-disabled="loginAdmin.$invalid" >Entrar</button><br><br>
+                    </div>
+                </div>
+                    
+                <!-- /.row -->
+</html>

@@ -11,7 +11,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
- <div class="container" >
+ <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -91,11 +91,11 @@ and open the template in the editor.
             </ul>
         </div>
         
-        
         <div ng-show="usuarioActual('registrarse')" ng-include="'views/nav/sidebars/registrarseSB.html'"></div>
         <div ng-show="usuarioActual('usuarioProveedor')" ng-include="'views/nav/sidebars/proveedorSB.html'"></div>
         <div ng-show="usuarioActual('usuarioCliente')" ng-include="'views/nav/sidebars/clienteSB.html'"></div>
-        
+        <div ng-show="usuarioActual('admin')" ng-include="'views/nav/sidebars/clienteSB.html'"></div>
+
         <!-- Sidebar Proveedores -->
         
        

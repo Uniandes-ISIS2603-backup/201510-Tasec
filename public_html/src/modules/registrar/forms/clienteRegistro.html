@@ -63,10 +63,10 @@ and open the template in the editor.
 
                         <button type="submit" class="btn btn-primary"
                                 ng-disabled="loginCliente.$invalid">Entrar</button><br><br>
-
-                        <a  href="javascript:window.location.href=window.location.href" class="alert-link">Haga click aqui para volver a la página principal</a>
-
                     </div>
+    <div ng-controller="registrarCliente as regClienteCtrl">
+        <a href ng-click="mostrarClientes=false;" class="alert-link">Haga click aqui para volver a la página principal</a>
+    </div>
                 </div>
                     
                 <!-- /.row -->
