@@ -31,7 +31,7 @@ import org.junit.runner.RunWith;
   import java.util.*;
   import uk.co.jemos.podam.api.PodamFactory;
   import uk.co.jemos.podam.api.PodamFactoryImpl;
- import org.jboss.shrinkwrap.api.spec.JavaArchive;
+  import org.jboss.shrinkwrap.api.spec.JavaArchive;
 /**
  *
  * @author JuanPablo

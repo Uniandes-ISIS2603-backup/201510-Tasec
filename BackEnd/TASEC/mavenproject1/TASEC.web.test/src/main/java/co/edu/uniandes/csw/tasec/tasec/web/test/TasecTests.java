@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.tasec.tasec.web.test;
+import static com.sun.tools.ws.wsdl.parser.Util.fail;
 import static org.junit.Assert.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -151,7 +152,6 @@ public class TasecTests {
     }
  
     @Test
-     @Test
     public void TestLoginProveedor() throws Exception {
         boolean success = false;
          driver.findElement(By.partialLinkText("Soy un Proveedor de Servicios")).click();

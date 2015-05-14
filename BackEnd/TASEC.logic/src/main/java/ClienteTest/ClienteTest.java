@@ -1,9 +1,9 @@
 package ClienteTest;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.api.IClienteLogic;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.converter.ClienteConverter;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.ejb.ClienteLogic;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
+import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
+import co.edu.uniandes.csw.TASEC.cliente.logic.converter.ClienteConverter;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.ejb.ClienteLogic;
+import co.edu.uniandes.csw.TASEC.cliente.logic.entity.ClienteEntity;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
