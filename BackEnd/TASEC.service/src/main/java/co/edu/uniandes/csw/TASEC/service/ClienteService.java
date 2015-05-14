@@ -6,9 +6,9 @@
 package co.edu.uniandes.csw.TASEC.service;
 
 
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.api.IClienteLogic;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClientePageDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
