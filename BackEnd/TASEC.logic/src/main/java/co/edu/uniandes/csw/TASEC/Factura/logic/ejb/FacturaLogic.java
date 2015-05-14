@@ -5,6 +5,7 @@ import co.edu.uniandes.csw.TASEC.Factura.logic.converter.FacturaConverter;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaPageDTO;
 import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
+import java.sql.Date;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -58,4 +59,10 @@ public class FacturaLogic implements IFacturaLogic{
         FacturaEntity entity = entityManager.merge(FacturaConverter.persistenceDTO2Entity(country));
         FacturaConverter.entity2PersistenceDTO(entity);
     }
+    
+    public Long getNumTransaccionesPorPeriodo(Date tiempoMin, Date tiempoMax) {
+        Query q = entityManager.createQuery("select count(u) from FacturaEntity u where fecha >" + tiempoMin + " and fecha < " + tiempoMax);
+        Long num = Long.parseLong(q.getSingleResult().toString());
+        return num; 
+    }        
 }

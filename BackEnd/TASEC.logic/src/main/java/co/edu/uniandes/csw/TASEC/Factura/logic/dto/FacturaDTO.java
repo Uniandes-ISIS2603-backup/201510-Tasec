@@ -1,12 +1,13 @@
 package co.edu.uniandes.csw.TASEC.Factura.logic.dto;
 
+import java.sql.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class FacturaDTO {
     private Long id;
     private Integer totalAPagar;
-    private String fecha;
+    private Date fecha;
 
     public Long getId() {
         return id;
@@ -16,11 +17,11 @@ public class FacturaDTO {
         this.id = id;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

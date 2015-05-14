@@ -29,6 +29,7 @@ package co.edu.uniandes.csw.TASEC.Factura.logic.api;
 
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaPageDTO;
+import java.sql.Date;
 import java.util.List;
 
 public interface IFacturaLogic {
@@ -44,4 +45,6 @@ public interface IFacturaLogic {
     public void deleteFactura(Long id);
 
     public void updateFactura(FacturaDTO detail);
+    
+    public Long getNumTransaccionesPorPeriodo(Date tiempoMin, Date tiempoMax);
 }

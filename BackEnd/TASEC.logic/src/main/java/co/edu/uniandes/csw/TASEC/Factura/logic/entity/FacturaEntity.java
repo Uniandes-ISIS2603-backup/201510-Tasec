@@ -1,4 +1,5 @@
 package co.edu.uniandes.csw.TASEC.Factura.logic.entity;
+import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +11,7 @@ public class FacturaEntity {
     @GeneratedValue(generator = "Factura")
     private Long id;
     private Integer totalAPagar;
-    private String fecha;
+    private Date fecha;
 
     public Long getId() {
         return id;
@@ -20,11 +21,11 @@ public class FacturaEntity {
         this.id = id;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
