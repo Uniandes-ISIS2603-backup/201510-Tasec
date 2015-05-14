@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.TASEC.service;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
 import co.edu.uniandes.csw.TASEC.Factura.logic.api.IFacturaLogic;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaPageDTO;
+import java.sql.Date;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -55,5 +56,12 @@ public class FacturaService {
     @PUT
     public void updateFactura(@PathParam("id") Long id, FacturaDTO factura) {
         facLogic.updateFactura(factura);
+    }
+    
+    @GET
+    @Path("monitoreo")
+    public Long getFacturasPorFecha(@QueryParam("fechaMin") String fechaMin, @QueryParam("fechaMax") String fechaMax)
+    {
+        return facLogic.getNumTransaccionesPorPeriodo(Date.valueOf(fechaMin), Date.valueOf(fechaMax));
     }
 }
