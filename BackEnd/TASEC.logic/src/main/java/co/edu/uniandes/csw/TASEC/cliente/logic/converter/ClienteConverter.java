@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.TASEC.Cliente.logic.converter;
+package co.edu.uniandes.csw.TASEC.cliente.logic.converter;
 
 
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.entity.ClienteEntity;
 import java.util.ArrayList;
 import java.util.List;
 

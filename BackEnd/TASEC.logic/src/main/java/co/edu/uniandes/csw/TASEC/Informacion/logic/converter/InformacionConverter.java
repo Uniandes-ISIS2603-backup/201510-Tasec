@@ -19,6 +19,10 @@ public class InformacionConverter {
         if (entity != null) {
             InformacionDTO dto = new InformacionDTO();
             dto.setId(entity.getId());
+            dto.setDescripcion(entity.getDescripcion());
+            dto.setFoto(entity.getFoto());
+            dto.setTipo(entity.getTipo());
+            dto.setTitulo(entity.getTitulo());
             return dto;
         } else {
             return null;
@@ -29,8 +33,10 @@ public class InformacionConverter {
         if (dto != null) {
             InformacionEntity entity = new InformacionEntity();
             entity.setId(dto.getId());
-
-          
+            entity.setDescripcion(dto.getDescripcion());
+            entity.setFoto(dto.getFoto());
+            entity.setTipo(dto.getTipo());
+            entity.setTitulo(dto.getTitulo());
 
             return entity;
         } else {

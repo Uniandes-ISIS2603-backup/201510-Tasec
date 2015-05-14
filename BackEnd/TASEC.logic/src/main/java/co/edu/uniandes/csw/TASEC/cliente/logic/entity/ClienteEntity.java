@@ -1,4 +1,4 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.entity;
+package co.edu.uniandes.csw.TASEC.cliente.logic.entity;
 
 import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 import co.edu.uniandes.csw.TASEC.Usuario.logic.entity.UsuarioEntity;

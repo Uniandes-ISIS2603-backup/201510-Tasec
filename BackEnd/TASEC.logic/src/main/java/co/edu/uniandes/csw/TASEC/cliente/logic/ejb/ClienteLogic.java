@@ -1,10 +1,10 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.ejb;
+package co.edu.uniandes.csw.TASEC.cliente.logic.ejb;
 
-import co.edu.uniandes.csw.TASEC.Cliente.logic.api.IClienteLogic;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.converter.ClienteConverter;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClientePageDTO;
-import co.edu.uniandes.csw.TASEC.Cliente.logic.entity.ClienteEntity;
+import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
+import co.edu.uniandes.csw.TASEC.cliente.logic.converter.ClienteConverter;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClientePageDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.entity.ClienteEntity;
 import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
 import java.util.Date;
 import java.util.List;

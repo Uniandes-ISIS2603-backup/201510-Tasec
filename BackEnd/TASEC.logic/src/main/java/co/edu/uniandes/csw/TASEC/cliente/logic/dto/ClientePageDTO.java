@@ -1,9 +1,9 @@
-package co.edu.uniandes.csw.TASEC.Cliente.logic.dto;
+package co.edu.uniandes.csw.TASEC.cliente.logic.dto;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import co.edu.uniandes.csw.TASEC.Cliente.logic.dto.ClienteDTO;
+import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
 
 @XmlRootElement
 public class ClientePageDTO {
