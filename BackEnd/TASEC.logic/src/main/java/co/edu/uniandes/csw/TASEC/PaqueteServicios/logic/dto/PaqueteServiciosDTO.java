@@ -1,15 +1,15 @@
 package co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto;
 
 import co.edu.uniandes.csw.TASEC.Servicio.logic.dto.ServicioDTO;
-import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.entity.ServicioSimpleEntity;
-import java.util.ArrayList;
+import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.dto.ServicioSimpleDTO;
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class PaqueteServiciosDTO extends ServicioDTO {
     public int cupos;
     public int cuposrestantes;
-    public ArrayList<ServicioSimpleEntity> servicios;
+    public List<ServicioSimpleDTO> servicios;
 
     public int getCupos() {
         return cupos;
@@ -27,11 +27,11 @@ public class PaqueteServiciosDTO extends ServicioDTO {
         this.cuposrestantes = cuposrestantes;
     }
 
-    public ArrayList<ServicioSimpleEntity> getServicios() {
+    public List<ServicioSimpleDTO> getServicios() {
         return servicios;
     }
 
-    public void setServicios(ArrayList<ServicioSimpleEntity> servicios) {
+    public void setServicios(List<ServicioSimpleDTO> servicios) {
         this.servicios = servicios;
     }
 }

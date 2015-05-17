@@ -41,7 +41,6 @@ public class ServicioDTO {
     private Date fecha;
     private boolean hayOferta;
     private Integer precioOferta;
-    private String categoria;
 
     public Long getId() {
         return id;
@@ -104,12 +103,5 @@ public class ServicioDTO {
 
     public void setHayOferta(boolean hayOferta) {
         this.hayOferta = hayOferta;
-    }
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 }

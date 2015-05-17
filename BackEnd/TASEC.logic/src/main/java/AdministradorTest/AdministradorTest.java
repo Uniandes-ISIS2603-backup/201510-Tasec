@@ -9,6 +9,8 @@ import co.edu.uniandes.csw.TASEC.Administrador.logic.converter.AdministradorConv
 import co.edu.uniandes.csw.TASEC.Administrador.logic.dto.AdministradorDTO;
 import co.edu.uniandes.csw.TASEC.Administrador.logic.ejb.AdministradorLogic;
 import co.edu.uniandes.csw.TASEC.Administrador.logic.entity.AdministradorEntity;
+import co.edu.uniandes.csw.TASEC.Informacion.logic.converter.InformacionConverter;
+import co.edu.uniandes.csw.TASEC.Mensaje.logic.converter.MensajeConverter;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -43,11 +45,11 @@ public class AdministradorTest {
       @Deployment
       public static JavaArchive createDeployment() {
           return ShrinkWrap.create(JavaArchive.class, DEPLOY + ".jar")
-                  //Añade el paquete en el que se encuentra la clase 'SportPersistance.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportPersistance.java'
                   .addPackage(AdministradorLogic.class.getPackage())
-                  //Añade el paquete en el que se encuentra la clase 'SportEntity.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportEntity.java'
                   .addPackage(AdministradorEntity.class.getPackage())
-                  //Finalmente se añaden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mínimo
+                  //Finalmente se aï¿½aden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mï¿½nimo
                   .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                   .addAsResource("META-INF/beans.xml", "META-INF/beans.xml");
       }
@@ -87,7 +89,7 @@ public class AdministradorTest {
  
               //Persiste el objeto en base de datos
               em.persist(entity);
-              //Se añade a la lista del oráculo
+              //Se aï¿½ade a la lista del orï¿½culo
               data.add(entity);
           }
       }
@@ -100,8 +102,14 @@ public class AdministradorTest {
           Assert.assertNotNull(result);
           AdministradorEntity entity = em.find(AdministradorEntity.class, result.getId());
  
-          Assert.assertEquals(dto.getName(), entity.getName());
+          Assert.assertEquals(dto.getNombre(),entity.getNombre());
           Assert.assertEquals(dto.getId(), entity.getId());
+          Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+          Assert.assertEquals(dto.getEdad(),entity.getEdad());
+          Assert.assertEquals(dto.getLogin(),entity.getLogin());
+          Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+          Assert.assertEquals(dto.getEMail(),entity.getEMail());
+          Assert.assertEquals(dto.getInformacion(),InformacionConverter.entity2PersistenceDTOList(entity.getInformacion()));
       }
       @Test
       public void getAdministradoresTest() {
@@ -122,8 +130,14 @@ public class AdministradorTest {
          AdministradorEntity entity = data.get(0);
          AdministradorDTO dto = AdministradorPersistence.getAdministrator(entity.getId());
          Assert.assertNotNull(dto);
-         Assert.assertEquals(entity.getName(), dto.getName());
-        Assert.assertEquals(entity.getId(), dto.getId());
+         Assert.assertEquals(dto.getNombre(),entity.getNombre());
+         Assert.assertEquals(dto.getId(), entity.getId());
+         Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+         Assert.assertEquals(dto.getEdad(),entity.getEdad());
+         Assert.assertEquals(dto.getLogin(),entity.getLogin());
+         Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+         Assert.assertEquals(dto.getEMail(),entity.getEMail());
+         Assert.assertEquals(dto.getInformacion(),InformacionConverter.entity2PersistenceDTOList(entity.getInformacion()));
      }
 
      @Test
@@ -142,8 +156,14 @@ public class AdministradorTest {
          dto.setId(entity.getId());
          AdministradorPersistence.updateAdministrator(dto);
          AdministradorEntity resp = em.find(AdministradorEntity.class, entity.getId());
-         Assert.assertEquals(dto.getName(), resp.getName());
          Assert.assertEquals(dto.getId(), resp.getId());
+         Assert.assertEquals(dto.getLogin(),resp.getLogin());
+         Assert.assertEquals(dto.getNombre(),resp.getNombre());
+         Assert.assertEquals(dto.getEMail(),resp.getNombre());
+         Assert.assertEquals(dto.getContrasenha(),resp.getContrasenha());
+         Assert.assertEquals(dto.getEdad(),resp.getEdad());
+         Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(resp.getMensajes()));
+         Assert.assertEquals(dto.getInformacion(),InformacionConverter.entity2PersistenceDTOList(resp.getInformacion()));
      }
  }
 

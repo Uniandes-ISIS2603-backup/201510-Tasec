@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.TASEC.Mensaje.logic.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -12,6 +13,7 @@ import javax.persistence.Id;
  *
  * @author josedanielcardenasrincon
  */
+@Entity
 public class MensajeEntity {
     
     @Id

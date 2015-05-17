@@ -37,7 +37,15 @@ public class ServicioSimpleConverter {
     public static ServicioSimpleDTO entity2PersistenceDTO(ServicioSimpleEntity entity) {
         if (entity != null) {
             ServicioSimpleDTO dto = new ServicioSimpleDTO();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setDescripcion(entity.getDescripcion());
             dto.setCalificacion(entity.getCalificacion());
+            dto.setFecha(entity.getfecha());
+            dto.setHayOferta(entity.getHayOferta());
+            dto.setPrecio(entity.getPrecio());
+            dto.setPrecioOferta(entity.getPrecioOferta());
+            dto.setCategoria(entity.getCategoria());
             return dto;
         } else {
             return null;
@@ -47,7 +55,15 @@ public class ServicioSimpleConverter {
     public static ServicioSimpleEntity persistenceDTO2Entity(ServicioSimpleDTO dto) {
         if (dto != null) {
             ServicioSimpleEntity entity = new ServicioSimpleEntity();
+            entity.setId(dto.getId());
+            entity.setName(dto.getName());
+            entity.setDescripcion(dto.getDescripcion());
             entity.setCalificacioin(dto.getCalificacion());
+            entity.setFecha(dto.getfecha());
+            entity.setHayOferta(dto.getHayOferta());
+            entity.setPrecio(dto.getPrecio());
+            entity.setPrecioOferta(dto.getPrecioOferta());
+            entity.setCategoria(dto.getCategoria());
             return entity;
         } else {
             return null;

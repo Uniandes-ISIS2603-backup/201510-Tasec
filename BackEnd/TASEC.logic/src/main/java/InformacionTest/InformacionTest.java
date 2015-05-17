@@ -42,11 +42,11 @@ public class InformacionTest {
       @Deployment
       public static JavaArchive createDeployment() {
           return ShrinkWrap.create(JavaArchive.class, DEPLOY + ".jar")
-                  //Añade el paquete en el que se encuentra la clase 'SportPersistance.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportPersistance.java'
                   .addPackage(InformacionLogic.class.getPackage())
-                  //Añade el paquete en el que se encuentra la clase 'SportEntity.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportEntity.java'
                   .addPackage(InformacionEntity.class.getPackage())
-                  //Finalmente se añaden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mínimo
+                  //Finalmente se aï¿½aden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mï¿½nimo
                   .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                   .addAsResource("META-INF/beans.xml", "META-INF/beans.xml");
       }
@@ -86,7 +86,7 @@ public class InformacionTest {
  
               //Persiste el objeto en base de datos
               em.persist(entity);
-              //Se añade a la lista del oráculo
+              //Se aï¿½ade a la lista del orï¿½culo
               data.add(entity);
           }
       }
@@ -99,7 +99,11 @@ public class InformacionTest {
           Assert.assertNotNull(result);
           InformacionEntity entity = em.find(InformacionEntity.class, result.getId());
  
-          Assert.assertEquals(dto.getId(), entity.getId());
+         Assert.assertEquals(dto.getId(), entity.getId());
+         Assert.assertEquals(dto.getDescripcion(),entity.getDescripcion());
+         Assert.assertEquals(dto.getTitulo(),entity.getTitulo());
+         Assert.assertEquals(dto.getTipo(),entity.getTipo());
+         Assert.assertEquals(dto.getFoto(),entity.getFoto());
       }
       @Test
       public void getInformacionesTest() {
@@ -121,7 +125,11 @@ public class InformacionTest {
          InformacionDTO dto = InformacionPersistence.getInformacion(entity.getId());
          Assert.assertNotNull(dto);
           
-         Assert.assertEquals(entity.getId(), dto.getId());
+         Assert.assertEquals(dto.getId(), entity.getId());
+         Assert.assertEquals(dto.getDescripcion(),entity.getDescripcion());
+         Assert.assertEquals(dto.getTitulo(),entity.getTitulo());
+         Assert.assertEquals(dto.getTipo(),entity.getTipo());
+         Assert.assertEquals(dto.getFoto(),entity.getFoto());
      }
 
      @Test
@@ -141,5 +149,9 @@ public class InformacionTest {
          InformacionPersistence.updateInformacion(dto);
          InformacionEntity resp = em.find(InformacionEntity.class, entity.getId());
           Assert.assertEquals(dto.getId(), resp.getId());
+          Assert.assertEquals(dto.getDescripcion(),resp.getDescripcion());
+          Assert.assertEquals(dto.getTitulo(),resp.getTitulo());
+          Assert.assertEquals(dto.getTipo(),resp.getTipo());
+          Assert.assertEquals(dto.getFoto(),resp.getFoto());
      }
 }

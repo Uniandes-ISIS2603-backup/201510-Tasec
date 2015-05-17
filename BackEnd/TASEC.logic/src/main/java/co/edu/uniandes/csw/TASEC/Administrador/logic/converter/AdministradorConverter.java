@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import co.edu.uniandes.csw.TASEC.Administrador.logic.dto.AdministradorDTO;
 import co.edu.uniandes.csw.TASEC.Administrador.logic.entity.AdministradorEntity;
+import co.edu.uniandes.csw.TASEC.Informacion.logic.converter.InformacionConverter;
+import co.edu.uniandes.csw.TASEC.Mensaje.logic.converter.MensajeConverter;
 /**
  *
  * @author afesguerra
@@ -19,7 +21,14 @@ public class AdministradorConverter {
         if (entity != null) {
             AdministradorDTO dto = new AdministradorDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
+            dto.setLogin(entity.getLogin());
+            dto.setEMail(entity.getEMail());
+            dto.setNombre(entity.getNombre());
+            dto.setContrasenha(entity.getContrasenha());
+            dto.setEdad(entity.getEdad());
+            dto.setMensajes(MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+            dto.setInformacion(InformacionConverter.entity2PersistenceDTOList(entity.getInformacion()));
+            
             return dto;
         } else {
             return null;
@@ -30,8 +39,13 @@ public class AdministradorConverter {
         if (dto != null) {
             AdministradorEntity entity = new AdministradorEntity();
             entity.setId(dto.getId());
-
-            entity.setName(dto.getName());
+            entity.setLogin(dto.getLogin());
+            entity.setNombre(dto.getNombre());
+            entity.setEMail(dto.getEMail());
+            entity.setContrasenha(dto.getContrasenha());
+            entity.setEdad(dto.getEdad());
+            entity.setMensajes(MensajeConverter.persistenceDTO2EntityList(dto.getMensajes()));
+            entity.setInformacion(InformacionConverter.persistenceDTO2EntityList(dto.getInformacion()));
 
             return entity;
         } else {

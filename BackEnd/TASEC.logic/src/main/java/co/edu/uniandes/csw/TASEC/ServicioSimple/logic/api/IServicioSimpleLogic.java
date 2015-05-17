@@ -43,4 +43,6 @@ public interface IServicioSimpleLogic {
     public void deleteServicioSimple(Long id);
 
     public void updateServicioSimple(ServicioSimpleDTO detail);
+    
+    public List<ServicioSimpleDTO> getServiciobyCategoria(String categoria);
 }

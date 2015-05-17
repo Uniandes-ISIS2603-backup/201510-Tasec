@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package UsuarioTest;
+import co.edu.uniandes.csw.TASEC.Mensaje.logic.converter.MensajeConverter;
 import co.edu.uniandes.csw.TASEC.Usuario.logic.api.IUsuarioLogic;
 import co.edu.uniandes.csw.TASEC.Usuario.logic.converter.UsuarioConverter;
 import co.edu.uniandes.csw.TASEC.Usuario.logic.dto.UsuarioDTO;
@@ -42,11 +43,11 @@ public class UsuarioTest {
       @Deployment
       public static JavaArchive createDeployment() {
           return ShrinkWrap.create(JavaArchive.class, DEPLOY + ".jar")
-                  //Añade el paquete en el que se encuentra la clase 'SportPersistance.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportPersistance.java'
                   .addPackage(UsuarioLogic.class.getPackage())
-                  //Añade el paquete en el que se encuentra la clase 'SportEntity.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportEntity.java'
                   .addPackage(UsuarioEntity.class.getPackage())
-                  //Finalmente se añaden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mínimo
+                  //Finalmente se aï¿½aden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mï¿½nimo
                   .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                   .addAsResource("META-INF/beans.xml", "META-INF/beans.xml");
       }
@@ -86,7 +87,7 @@ public class UsuarioTest {
  
               //Persiste el objeto en base de datos
               em.persist(entity);
-              //Se añade a la lista del oráculo
+              //Se aï¿½ade a la lista del orï¿½culo
               data.add(entity);
           }
       }
@@ -99,13 +100,13 @@ public class UsuarioTest {
           Assert.assertNotNull(result);
           UsuarioEntity entity = em.find(UsuarioEntity.class, result.getId());
  
-          Assert.assertEquals(dto.getName(), entity.getName());
+          Assert.assertEquals(dto.getNombre(),entity.getNombre());
           Assert.assertEquals(dto.getId(), entity.getId());
-          Assert.assertEquals(dto.getName(), entity.getName());
-         Assert.assertEquals(dto.getId(), entity.getId());
-         Assert.assertEquals(dto.getCountry(), entity.getCountry());
-        Assert.assertEquals(dto.getMaxAge(), entity.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), entity.getMinAge());
+          Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+          Assert.assertEquals(dto.getEdad(),entity.getEdad());
+          Assert.assertEquals(dto.getLogin(),entity.getLogin());
+          Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+          Assert.assertEquals(dto.getEMail(),entity.getEMail());
       }
       @Test
       public void getUsuarioesTest() {
@@ -126,20 +127,13 @@ public class UsuarioTest {
          UsuarioEntity entity = data.get(0);
          UsuarioDTO dto = UsuarioPersistence.getUsuario(entity.getId());
          Assert.assertNotNull(dto);
-         Assert.assertEquals(entity.getName(), dto.getName());
-        Assert.assertEquals(entity.getId(), dto.getId());
-        Assert.assertEquals(dto.getName(), dto.getName());
-         Assert.assertEquals(dto.getId(), dto.getId());
-         Assert.assertEquals(dto.getCountry(), dto.getCountry());
-         Assert.assertEquals(dto.getName(), entity.getName());
-          Assert.assertEquals(dto.getId(), entity.getId());
-          Assert.assertEquals(dto.getName(), entity.getName());
+         Assert.assertEquals(dto.getNombre(),entity.getNombre());
          Assert.assertEquals(dto.getId(), entity.getId());
-         Assert.assertEquals(dto.getCountry(), entity.getCountry());
-        Assert.assertEquals(dto.getMaxAge(), entity.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), entity.getMinAge());
-         Assert.assertEquals(dto.getMaxAge(), dto.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), dto.getMinAge());
+         Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+         Assert.assertEquals(dto.getEdad(),entity.getEdad());
+         Assert.assertEquals(dto.getLogin(),entity.getLogin());
+         Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+         Assert.assertEquals(dto.getEMail(),entity.getEMail());
      }
 
      @Test
@@ -158,18 +152,13 @@ public class UsuarioTest {
          dto.setId(entity.getId());
          UsuarioPersistence.updateUsuario(dto);
          UsuarioEntity resp = em.find(UsuarioEntity.class, entity.getId());
-         Assert.assertEquals(dto.getName(), resp.getName());
+         Assert.assertEquals(dto.getNombre(),resp.getNombre());
          Assert.assertEquals(dto.getId(), resp.getId());
-         Assert.assertEquals(dto.getCountry(), resp.getCountry());
-         Assert.assertEquals(dto.getName(), entity.getName());
-          Assert.assertEquals(dto.getId(), entity.getId());
-          Assert.assertEquals(dto.getName(), entity.getName());
-         Assert.assertEquals(dto.getId(), entity.getId());
-         Assert.assertEquals(dto.getCountry(), entity.getCountry());
-        Assert.assertEquals(dto.getMaxAge(), entity.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), entity.getMinAge());
-         Assert.assertEquals(dto.getMaxAge(), resp.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), resp.getMinAge());
+         Assert.assertEquals(dto.getContrasenha(),resp.getContrasenha());
+         Assert.assertEquals(dto.getEdad(),resp.getEdad());
+         Assert.assertEquals(dto.getLogin(),resp.getLogin());
+         Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(resp.getMensajes()));
+         Assert.assertEquals(dto.getEMail(),resp.getEMail());
          
          
          

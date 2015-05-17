@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.TASEC.cliente.logic.converter;
 
 
+import co.edu.uniandes.csw.TASEC.Factura.logic.converter.FacturaConverter;
+import co.edu.uniandes.csw.TASEC.Mensaje.logic.converter.MensajeConverter;
 import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
 import co.edu.uniandes.csw.TASEC.cliente.logic.entity.ClienteEntity;
 import java.util.ArrayList;
@@ -20,8 +22,19 @@ public class ClienteConverter {
         if (entity != null) {
             ClienteDTO dto = new ClienteDTO();
             dto.setId(entity.getId());
-            dto.setName(entity.getName());
+            dto.setLogin(entity.getLogin());
+            dto.setEMail(entity.getEMail());
+            dto.setNombre(entity.getNombre());
+            dto.setContrasenha(entity.getContrasenha());
+            dto.setEdad(entity.getEdad());
+            dto.setMensajes(MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+            dto.setSaldo(entity.getSaldo());
+            dto.setDireccion(entity.getDireccion());
+            dto.setTarjetaDeCredito(entity.getTarjetaDeCredito());
+            dto.setTelefono(entity.getTelefono());
+            dto.setComprasRealizadas(FacturaConverter.entity2PersistenceDTOList(entity.getComprasRealizadas()));
             return dto;
+        
         } else {
             return null;
         }
@@ -31,8 +44,18 @@ public class ClienteConverter {
         if (dto != null) {
             ClienteEntity entity = new ClienteEntity();
             entity.setId(dto.getId());
-            entity.setName(dto.getName());
+            entity.setLogin(dto.getLogin());
+            entity.setNombre(dto.getNombre());
+            entity.setEMail(dto.getEMail());
+            entity.setContrasenha(dto.getContrasenha());
+            entity.setEdad(dto.getEdad());
+            entity.setMensajes(MensajeConverter.persistenceDTO2EntityList(dto.getMensajes()));
+            entity.setDireccion(dto.getDireccion());
+            entity.setSaldo(dto.getSaldo());
+            entity.setTelefono(dto.getTelefono());
+            entity.setComprasRealizadas(FacturaConverter.persistenceDTO2EntityList(dto.getComprasRealizadas()));
             return entity;
+        
         } else {
             return null;
         }

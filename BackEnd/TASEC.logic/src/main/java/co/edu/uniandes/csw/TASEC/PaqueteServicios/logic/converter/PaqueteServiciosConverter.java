@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.converter;
 
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto.PaqueteServiciosDTO;
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.entity.PaqueteServiciosEntity;
+import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.converter.ServicioSimpleConverter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +20,18 @@ public class PaqueteServiciosConverter {
     public static PaqueteServiciosDTO entity2PersistenceDTO(PaqueteServiciosEntity entity) {
         if (entity != null) {
             PaqueteServiciosDTO dto = new PaqueteServiciosDTO();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setDescripcion(entity.getDescripcion());
+            dto.setCalificacion(entity.getCalificacion());
+            dto.setFecha(entity.getfecha());
+            dto.setHayOferta(entity.getHayOferta());
+            dto.setPrecio(entity.getPrecio());
+            dto.setPrecioOferta(entity.getPrecioOferta());
             dto.setCupos(entity.getCupos());
             dto.setCuposRestantes(entity.getCuposRestantes());
-            dto.setServicios(entity.getServicios());
+            dto.setServicios(ServicioSimpleConverter.entity2PersistenceDTOList(entity.getServicios()));
+            
             return dto;
         } else {
             return null;
@@ -31,9 +41,17 @@ public class PaqueteServiciosConverter {
     public static PaqueteServiciosEntity persistenceDTO2Entity(PaqueteServiciosDTO dto) {
         if (dto != null) {
             PaqueteServiciosEntity entity = new PaqueteServiciosEntity();
-             entity.setCupos(dto.getCupos());
+            entity.setId(dto.getId());
+            entity.setName(dto.getName());
+            entity.setDescripcion(dto.getDescripcion());
+            entity.setCalificacioin(dto.getCalificacion());
+            entity.setFecha(dto.getfecha());
+            entity.setHayOferta(dto.getHayOferta());
+            entity.setPrecio(dto.getPrecio());
+            entity.setPrecioOferta(dto.getPrecioOferta());
+            entity.setCupos(dto.getCupos());
             entity.setCuposRestantes(dto.getCuposRestantes());
-            entity.setServicios(dto.getServicios());
+            entity.setServicios(ServicioSimpleConverter.persistenceDTO2EntityList(dto.getServicios()));
 
             return entity;
         } else {

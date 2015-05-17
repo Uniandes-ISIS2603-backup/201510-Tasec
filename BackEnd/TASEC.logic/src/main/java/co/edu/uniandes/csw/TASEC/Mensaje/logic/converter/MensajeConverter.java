@@ -21,7 +21,7 @@ public class MensajeConverter {
             dto.setId(entity.getId());
             dto.setAsunto(entity.getAsunto());
             dto.setNombre(entity.getNombre());
-            dto.setCorreo(entity.getNombre());
+            dto.setCorreo(entity.getCorreo());
             dto.setCelular(entity.getCelular());
             dto.setMensaje(entity.getMensaje());
             dto.setDestinatario(entity.getDestinatario());

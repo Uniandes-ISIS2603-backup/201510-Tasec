@@ -2,19 +2,21 @@ package co.edu.uniandes.csw.TASEC.cliente.logic.entity;
 
 import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 import co.edu.uniandes.csw.TASEC.Usuario.logic.entity.UsuarioEntity;
-import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
 
 @Entity
+//@DiscriminatorValue("Cliente")
 public class ClienteEntity extends UsuarioEntity {
-
-    @GeneratedValue(generator = "Cliente")
+    
     private int saldo;
     private int tarjetaDeCredito;
     private String direccion;
     private int telefono;
-    private ArrayList<FacturaEntity> comprasRealizadas;
+    @OneToMany
+    private List<FacturaEntity> comprasRealizadas;
 
     public int getSaldo() {
         return saldo;
@@ -48,11 +50,11 @@ public class ClienteEntity extends UsuarioEntity {
         this.telefono = telefono;
     }
     
-    public ArrayList<FacturaEntity> getComprasRealizadas(){
+    public List<FacturaEntity> getComprasRealizadas(){
             return comprasRealizadas;
     }
     
-    public void setComprasRealizadas(ArrayList<FacturaEntity> compras){
+    public void setComprasRealizadas(List<FacturaEntity> compras){
         this.comprasRealizadas=compras;
     }
 

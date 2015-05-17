@@ -42,11 +42,11 @@ public class ServicioTest {
       @Deployment
       public static JavaArchive createDeployment() {
           return ShrinkWrap.create(JavaArchive.class, DEPLOY + ".jar")
-                  //Añade el paquete en el que se encuentra la clase 'SportPersistance.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportPersistance.java'
                   .addPackage(ServicioLogic.class.getPackage())
-                  //Añade el paquete en el que se encuentra la clase 'SportEntity.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportEntity.java'
                   .addPackage(ServicioEntity.class.getPackage())
-                  //Finalmente se añaden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mínimo
+                  //Finalmente se aï¿½aden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mï¿½nimo
                   .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                   .addAsResource("META-INF/beans.xml", "META-INF/beans.xml");
       }
@@ -86,7 +86,7 @@ public class ServicioTest {
  
               //Persiste el objeto en base de datos
               em.persist(entity);
-              //Se añade a la lista del oráculo
+              //Se aï¿½ade a la lista del orï¿½culo
               data.add(entity);
           }
       }
@@ -100,7 +100,6 @@ public class ServicioTest {
           ServicioEntity entity = em.find(ServicioEntity.class, result.getId());
  
           Assert.assertEquals(dto.getCalificacion(), entity.getCalificacion());
-          Assert.assertEquals(dto.getCategoria(), entity.getCategoria());
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
           Assert.assertEquals(dto.getHayOferta(), entity.getHayOferta());
           Assert.assertEquals(dto.getName(), entity.getName());
@@ -129,7 +128,6 @@ public class ServicioTest {
          ServicioDTO dto = ServicioPersistence.getServicio(entity.getId());
          Assert.assertNotNull(dto);
           Assert.assertEquals(dto.getCalificacion(), entity.getCalificacion());
-          Assert.assertEquals(dto.getCategoria(), entity.getCategoria());
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
           Assert.assertEquals(dto.getHayOferta(), entity.getHayOferta());
           Assert.assertEquals(dto.getName(), entity.getName());
@@ -156,7 +154,6 @@ public class ServicioTest {
          ServicioPersistence.updateServicio(dto);
          ServicioEntity resp = em.find(ServicioEntity.class, entity.getId());
          Assert.assertEquals(dto.getCalificacion(), entity.getCalificacion());
-          Assert.assertEquals(dto.getCategoria(), entity.getCategoria());
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
           Assert.assertEquals(dto.getHayOferta(), entity.getHayOferta());
           Assert.assertEquals(dto.getName(), entity.getName());

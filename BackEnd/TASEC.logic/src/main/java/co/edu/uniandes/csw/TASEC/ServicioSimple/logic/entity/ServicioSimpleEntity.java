@@ -29,12 +29,11 @@ package co.edu.uniandes.csw.TASEC.ServicioSimple.logic.entity;
 
 import co.edu.uniandes.csw.TASEC.Servicio.logic.entity.ServicioEntity;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 
 @Entity
 public class ServicioSimpleEntity extends ServicioEntity{
 
-    @GeneratedValue(generator = "ServicioSimple")
+    //@GeneratedValue(generator = "ServicioSimple")
     private String categoria;
 
     public String getCategoria() {

@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.converter.PaqueteServici
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.dto.PaqueteServiciosDTO;
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.ejb.PaqueteServiciosLogic;
 import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.entity.PaqueteServiciosEntity;
+import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.converter.ServicioSimpleConverter;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -42,11 +43,11 @@ public class PaqueteServiciosTest {
       @Deployment
       public static JavaArchive createDeployment() {
           return ShrinkWrap.create(JavaArchive.class, DEPLOY + ".jar")
-                  //Añade el paquete en el que se encuentra la clase 'SportPersistance.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportPersistance.java'
                   .addPackage(PaqueteServiciosLogic.class.getPackage())
-                  //Añade el paquete en el que se encuentra la clase 'SportEntity.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportEntity.java'
                   .addPackage(PaqueteServiciosEntity.class.getPackage())
-                  //Finalmente se añaden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mínimo
+                  //Finalmente se aï¿½aden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mï¿½nimo
                   .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                   .addAsResource("META-INF/beans.xml", "META-INF/beans.xml");
       }
@@ -86,7 +87,7 @@ public class PaqueteServiciosTest {
  
               //Persiste el objeto en base de datos
               em.persist(entity);
-              //Se añade a la lista del oráculo
+              //Se aï¿½ade a la lista del orï¿½culo
               data.add(entity);
           }
       }
@@ -100,7 +101,6 @@ public class PaqueteServiciosTest {
           PaqueteServiciosEntity entity = em.find(PaqueteServiciosEntity.class, result.getId());
  
           Assert.assertEquals(dto.getCalificacion(), entity.getCalificacion());
-          Assert.assertEquals(dto.getCategoria(), entity.getCategoria());
           Assert.assertEquals(dto.getCupos(), entity.getCupos());
           Assert.assertEquals(dto.getCuposRestantes(), entity.getCuposRestantes());
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
@@ -108,7 +108,7 @@ public class PaqueteServiciosTest {
           Assert.assertEquals(dto.getName(), entity.getName());
           Assert.assertEquals(dto.getPrecio(), entity.getPrecio());
           Assert.assertEquals(dto.getPrecioOferta(), entity.getPrecioOferta());
-          Assert.assertEquals(dto.getServicios(), entity.getServicios());
+          Assert.assertEquals(dto.getServicios(), ServicioSimpleConverter.entity2PersistenceDTOList(entity.getServicios()));
           Assert.assertEquals(dto.getfecha(), entity.getfecha());
           Assert.assertEquals(dto.getId(), entity.getId());
       }
@@ -132,7 +132,6 @@ public class PaqueteServiciosTest {
          PaqueteServiciosDTO dto = PaqueteServiciosPersistence.getPaqueteServicios(entity.getId());
          Assert.assertNotNull(dto);
           Assert.assertEquals(dto.getCalificacion(), entity.getCalificacion());
-          Assert.assertEquals(dto.getCategoria(), entity.getCategoria());
           Assert.assertEquals(dto.getCupos(), entity.getCupos());
           Assert.assertEquals(dto.getCuposRestantes(), entity.getCuposRestantes());
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
@@ -162,7 +161,6 @@ public class PaqueteServiciosTest {
          PaqueteServiciosPersistence.updatePaqueteServicios(dto);
          PaqueteServiciosEntity resp = em.find(PaqueteServiciosEntity.class, entity.getId());
          Assert.assertEquals(dto.getCalificacion(), entity.getCalificacion());
-          Assert.assertEquals(dto.getCategoria(), entity.getCategoria());
           Assert.assertEquals(dto.getCupos(), entity.getCupos());
           Assert.assertEquals(dto.getCuposRestantes(), entity.getCuposRestantes());
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
@@ -170,7 +168,7 @@ public class PaqueteServiciosTest {
           Assert.assertEquals(dto.getName(), entity.getName());
           Assert.assertEquals(dto.getPrecio(), entity.getPrecio());
           Assert.assertEquals(dto.getPrecioOferta(), entity.getPrecioOferta());
-          Assert.assertEquals(dto.getServicios(), entity.getServicios());
+          Assert.assertEquals(dto.getServicios(), ServicioSimpleConverter.entity2PersistenceDTOList(entity.getServicios()));
           Assert.assertEquals(dto.getfecha(), entity.getfecha());
           Assert.assertEquals(dto.getId(), entity.getId());
      }

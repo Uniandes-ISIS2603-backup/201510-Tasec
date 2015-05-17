@@ -1,9 +1,9 @@
 package co.edu.uniandes.csw.TASEC.cliente.logic.dto;
 
+import co.edu.uniandes.csw.TASEC.Factura.logic.dto.FacturaDTO;
 import co.edu.uniandes.csw.TASEC.Usuario.logic.dto.UsuarioDTO;
-import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
-import co.edu.uniandes.csw.TASEC.Factura.logic.entity.FacturaEntity;
 
 @XmlRootElement
 public class ClienteDTO extends UsuarioDTO {
@@ -11,7 +11,7 @@ public class ClienteDTO extends UsuarioDTO {
     private int tarjetaDeCredito;
     private String direccion;
     private int telefono;
-    private ArrayList<FacturaEntity> comprasRealizadas;
+    private List<FacturaDTO> comprasRealizadas;
     
     public int getSaldo() {
         return saldo;
@@ -45,11 +45,11 @@ public class ClienteDTO extends UsuarioDTO {
         this.telefono = telefono;
     }
     
-    public ArrayList<FacturaEntity> getComprasRealizadas(){
+    public List<FacturaDTO> getComprasRealizadas(){
             return comprasRealizadas;
     }
     
-    public void setComprasRealizadas(ArrayList<FacturaEntity> compras){
+    public void setComprasRealizadas(List<FacturaDTO> compras){
         this.comprasRealizadas=compras;
     }
 }

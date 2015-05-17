@@ -1,4 +1,6 @@
 package ClienteTest;
+import co.edu.uniandes.csw.TASEC.Factura.logic.converter.FacturaConverter;
+import co.edu.uniandes.csw.TASEC.Mensaje.logic.converter.MensajeConverter;
 import co.edu.uniandes.csw.TASEC.cliente.logic.api.IClienteLogic;
 import co.edu.uniandes.csw.TASEC.cliente.logic.converter.ClienteConverter;
 import co.edu.uniandes.csw.TASEC.cliente.logic.dto.ClienteDTO;
@@ -37,11 +39,11 @@ public class ClienteTest {
       @Deployment
       public static JavaArchive createDeployment() {
           return ShrinkWrap.create(JavaArchive.class, DEPLOY + ".jar")
-                  //Añade el paquete en el que se encuentra la clase 'SportPersistance.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportPersistance.java'
                   .addPackage(ClienteLogic.class.getPackage())
-                  //Añade el paquete en el que se encuentra la clase 'SportEntity.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportEntity.java'
                   .addPackage(ClienteEntity.class.getPackage())
-                  //Finalmente se añaden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mínimo
+                  //Finalmente se aï¿½aden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mï¿½nimo
                   .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                   .addAsResource("META-INF/beans.xml", "META-INF/beans.xml");
       }
@@ -81,7 +83,7 @@ public class ClienteTest {
  
               //Persiste el objeto en base de datos
               em.persist(entity);
-              //Se añade a la lista del oráculo
+              //Se aï¿½ade a la lista del orï¿½culo
               data.add(entity);
           }
       }
@@ -94,18 +96,18 @@ public class ClienteTest {
           Assert.assertNotNull(result);
           ClienteEntity entity = em.find(ClienteEntity.class, result.getId());
  
-          Assert.assertEquals(dto.getName(), entity.getName());
-          Assert.assertEquals(dto.getId(), entity.getId());
-          Assert.assertEquals(dto.getName(), entity.getName());
+         Assert.assertEquals(dto.getNombre(),entity.getNombre());
          Assert.assertEquals(dto.getId(), entity.getId());
-         Assert.assertEquals(dto.getCountry(), entity.getCountry());
          Assert.assertEquals(dto.getDireccion(), entity.getDireccion());
          Assert.assertEquals(dto.getSaldo(), entity.getSaldo());
          Assert.assertEquals(dto.getTarjetaDeCredito(), entity.getTarjetaDeCredito());
          Assert.assertEquals(dto.getTelefono(), entity.getTelefono());
-         Assert.assertEquals(dto.getComprasRealizadas(), entity.getComprasRealizadas());
-         Assert.assertEquals(dto.getMaxAge(), entity.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), entity.getMinAge());
+         Assert.assertEquals(dto.getComprasRealizadas(), FacturaConverter.entity2PersistenceDTOList(entity.getComprasRealizadas()));
+         Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+         Assert.assertEquals(dto.getEdad(),entity.getEdad());
+         Assert.assertEquals(dto.getLogin(),entity.getLogin());
+         Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+         Assert.assertEquals(dto.getEMail(),entity.getEMail());
       }
       @Test
       public void getClienteesTest() {
@@ -126,18 +128,18 @@ public class ClienteTest {
          ClienteEntity entity = data.get(0);
          ClienteDTO dto = ClientePersistence.getCliente(entity.getId());
          Assert.assertNotNull(dto);
-         Assert.assertEquals(entity.getName(), dto.getName());
-        Assert.assertEquals(entity.getId(), dto.getId());
-        Assert.assertEquals(dto.getName(), dto.getName());
-         Assert.assertEquals(dto.getId(), dto.getId());
-         Assert.assertEquals(dto.getCountry(), dto.getCountry());
-         Assert.assertEquals(dto.getDireccion(), dto.getDireccion());
-         Assert.assertEquals(dto.getSaldo(), dto.getSaldo());
-         Assert.assertEquals(dto.getTarjetaDeCredito(), dto.getTarjetaDeCredito());
-         Assert.assertEquals(dto.getTelefono(), dto.getTelefono());
-         Assert.assertEquals(dto.getComprasRealizadas(), dto.getComprasRealizadas());
-         Assert.assertEquals(dto.getMaxAge(), dto.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), dto.getMinAge());
+         Assert.assertEquals(dto.getNombre(),entity.getNombre());
+         Assert.assertEquals(dto.getId(), entity.getId());
+         Assert.assertEquals(dto.getDireccion(), entity.getDireccion());
+         Assert.assertEquals(dto.getSaldo(), entity.getSaldo());
+         Assert.assertEquals(dto.getTarjetaDeCredito(), entity.getTarjetaDeCredito());
+         Assert.assertEquals(dto.getTelefono(), entity.getTelefono());
+         Assert.assertEquals(dto.getComprasRealizadas(), FacturaConverter.entity2PersistenceDTOList(entity.getComprasRealizadas()));
+         Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+         Assert.assertEquals(dto.getEdad(),entity.getEdad());
+         Assert.assertEquals(dto.getLogin(),entity.getLogin());
+         Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+         Assert.assertEquals(dto.getEMail(),entity.getEMail());
      }
 
      @Test
@@ -156,16 +158,18 @@ public class ClienteTest {
          dto.setId(entity.getId());
          ClientePersistence.updateCliente(dto);
          ClienteEntity resp = em.find(ClienteEntity.class, entity.getId());
-         Assert.assertEquals(dto.getName(), resp.getName());
+         Assert.assertEquals(dto.getNombre(),resp.getNombre());
          Assert.assertEquals(dto.getId(), resp.getId());
-         Assert.assertEquals(dto.getCountry(), resp.getCountry());
          Assert.assertEquals(dto.getDireccion(), resp.getDireccion());
          Assert.assertEquals(dto.getSaldo(), resp.getSaldo());
          Assert.assertEquals(dto.getTarjetaDeCredito(), resp.getTarjetaDeCredito());
          Assert.assertEquals(dto.getTelefono(), resp.getTelefono());
-         Assert.assertEquals(dto.getComprasRealizadas(), resp.getComprasRealizadas());
-         Assert.assertEquals(dto.getMaxAge(), resp.getMaxAge());
-         Assert.assertEquals(dto.getMinAge(), resp.getMinAge());
+         Assert.assertEquals(dto.getComprasRealizadas(), FacturaConverter.entity2PersistenceDTOList(resp.getComprasRealizadas()));
+         Assert.assertEquals(dto.getContrasenha(),resp.getContrasenha());
+         Assert.assertEquals(dto.getEdad(),resp.getEdad());
+         Assert.assertEquals(dto.getLogin(),resp.getLogin());
+         Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(resp.getMensajes()));
+         Assert.assertEquals(dto.getEMail(),resp.getEMail());
          
          
          

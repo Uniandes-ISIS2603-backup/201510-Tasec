@@ -1,26 +1,22 @@
 package co.edu.uniandes.csw.TASEC.Administrador.logic.dto;
 
+import co.edu.uniandes.csw.TASEC.Informacion.logic.dto.InformacionDTO;
+import co.edu.uniandes.csw.TASEC.Usuario.logic.dto.UsuarioDTO;
+import java.util.List;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class AdministradorDTO {
-    private Long id;
+public class AdministradorDTO extends UsuarioDTO{
+    
+    @OneToMany
+    private List<InformacionDTO> informacion;
 
-    private String name;
-
-    public Long getId() {
-        return id;
+    public List<InformacionDTO> getInformacion() {
+        return informacion;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setInformacion(List<InformacionDTO> informacion) {
+        this.informacion = informacion;
     }
 }

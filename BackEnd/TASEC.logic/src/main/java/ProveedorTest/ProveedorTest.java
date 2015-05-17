@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package ProveedorTest;
+import co.edu.uniandes.csw.TASEC.Mensaje.logic.converter.MensajeConverter;
+import co.edu.uniandes.csw.TASEC.PaqueteServicios.logic.converter.PaqueteServiciosConverter;
 import co.edu.uniandes.csw.TASEC.Proveedor.logic.api.IProveedorLogic;
 import co.edu.uniandes.csw.TASEC.Proveedor.logic.converter.ProveedorConverter;
 import co.edu.uniandes.csw.TASEC.Proveedor.logic.dto.ProveedorDTO;
 import co.edu.uniandes.csw.TASEC.Proveedor.logic.ejb.ProveedorLogic;
 import co.edu.uniandes.csw.TASEC.Proveedor.logic.entity.ProveedorEntity;
+import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.converter.ServicioSimpleConverter;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -42,11 +45,11 @@ public class ProveedorTest {
       @Deployment
       public static JavaArchive createDeployment() {
           return ShrinkWrap.create(JavaArchive.class, DEPLOY + ".jar")
-                  //Añade el paquete en el que se encuentra la clase 'SportPersistance.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportPersistance.java'
                   .addPackage(ProveedorLogic.class.getPackage())
-                  //Añade el paquete en el que se encuentra la clase 'SportEntity.java'
+                  //Aï¿½ade el paquete en el que se encuentra la clase 'SportEntity.java'
                   .addPackage(ProveedorEntity.class.getPackage())
-                  //Finalmente se añaden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mínimo
+                  //Finalmente se aï¿½aden los archivos persistance.xml y beans.xml para la Unidad de peristencia y CDI del paquete mï¿½nimo
                   .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                   .addAsResource("META-INF/beans.xml", "META-INF/beans.xml");
       }
@@ -86,7 +89,7 @@ public class ProveedorTest {
  
               //Persiste el objeto en base de datos
               em.persist(entity);
-              //Se añade a la lista del oráculo
+              //Se aï¿½ade a la lista del orï¿½culo
               data.add(entity);
           }
       }
@@ -100,9 +103,15 @@ public class ProveedorTest {
           ProveedorEntity entity = em.find(ProveedorEntity.class, result.getId());
  
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
-          Assert.assertEquals(dto.getServicios(), entity.getServicios());
+          Assert.assertEquals(dto.getServicios(), ServicioSimpleConverter.entity2PersistenceDTOList(entity.getServicios()));
+          Assert.assertEquals(dto.getPaquetes(), PaqueteServiciosConverter.entity2PersistenceDTOList(entity.getPaquetes()));
           Assert.assertEquals(dto.getVentas(), entity.getVentas());
           Assert.assertEquals(dto.getId(), entity.getId());
+          Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+          Assert.assertEquals(dto.getEdad(),entity.getEdad());
+          Assert.assertEquals(dto.getLogin(),entity.getLogin());
+          Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+          Assert.assertEquals(dto.getEMail(),entity.getEMail());
       }
       @Test
       public void getProveedoresTest() {
@@ -124,9 +133,16 @@ public class ProveedorTest {
          ProveedorDTO dto = ProveedorPersistence.getProveedor(entity.getId());
          Assert.assertNotNull(dto);
           Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
-          Assert.assertEquals(dto.getServicios(), entity.getServicios());
+          Assert.assertEquals(dto.getServicios(), ServicioSimpleConverter.entity2PersistenceDTOList(entity.getServicios()));
+          Assert.assertEquals(dto.getPaquetes(), PaqueteServiciosConverter.entity2PersistenceDTOList(entity.getPaquetes()));
           Assert.assertEquals(dto.getVentas(), entity.getVentas());
+          Assert.assertEquals(dto.getNombre(),entity.getNombre());
           Assert.assertEquals(dto.getId(), entity.getId());
+          Assert.assertEquals(dto.getContrasenha(),entity.getContrasenha());
+          Assert.assertEquals(dto.getEdad(),entity.getEdad());
+          Assert.assertEquals(dto.getLogin(),entity.getLogin());
+          Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(entity.getMensajes()));
+          Assert.assertEquals(dto.getEMail(),entity.getEMail());
      }
 
      @Test
@@ -145,9 +161,16 @@ public class ProveedorTest {
          dto.setId(entity.getId());
          ProveedorPersistence.updateProveedor(dto);
          ProveedorEntity resp = em.find(ProveedorEntity.class, entity.getId());
-         Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
-          Assert.assertEquals(dto.getServicios(), entity.getServicios());
+          Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());
+          Assert.assertEquals(dto.getServicios(), ServicioSimpleConverter.entity2PersistenceDTOList(entity.getServicios()));
+          Assert.assertEquals(dto.getPaquetes(), PaqueteServiciosConverter.entity2PersistenceDTOList(entity.getPaquetes()));
           Assert.assertEquals(dto.getVentas(), entity.getVentas());
-          Assert.assertEquals(dto.getId(), entity.getId());
+          Assert.assertEquals(dto.getNombre(),resp.getNombre());
+          Assert.assertEquals(dto.getId(), resp.getId());
+          Assert.assertEquals(dto.getContrasenha(),resp.getContrasenha());
+          Assert.assertEquals(dto.getEdad(),resp.getEdad());
+          Assert.assertEquals(dto.getLogin(),resp.getLogin());
+          Assert.assertEquals(dto.getMensajes(),MensajeConverter.entity2PersistenceDTOList(resp.getMensajes()));
+          Assert.assertEquals(dto.getEMail(),resp.getEMail());
      }
 }

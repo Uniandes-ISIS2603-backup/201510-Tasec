@@ -1,30 +1,22 @@
 package co.edu.uniandes.csw.TASEC.Administrador.logic.entity;
 
+import co.edu.uniandes.csw.TASEC.Informacion.logic.entity.InformacionEntity;
+import co.edu.uniandes.csw.TASEC.Usuario.logic.entity.UsuarioEntity;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class AdministradorEntity {
+public class AdministradorEntity extends UsuarioEntity{
 
-    @Id
-    @GeneratedValue(generator = "Country")
-    private Long id;
-    private String name;
-
-    public Long getId() {
-        return id;
+    @OneToMany
+    private List<InformacionEntity> informacion;
+   
+    public List<InformacionEntity> getInformacion() {
+        return informacion;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setInformacion(List<InformacionEntity> informacion) {
+        this.informacion = informacion;
     }
 }
