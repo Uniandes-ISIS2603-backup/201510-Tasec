@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.TASEC.service;
 
+import co.edu.uniandes.csw.TASEC.Servicio.logic.dto.ServicioDTO;
 import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.api.IServicioSimpleLogic;
 import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.dto.ServicioSimpleDTO;
 import co.edu.uniandes.csw.TASEC.ServicioSimple.logic.dto.ServicioSimplePageDTO;
@@ -60,5 +61,11 @@ public class ServicioSimpleservice {
     @PUT
     public void updateServicioSimple(@PathParam("id") Long id, ServicioSimpleDTO ss) {
         ssLogic.updateServicioSimple(ss);
+    }
+    
+    @GET
+    @Path("categoria")
+    public List<ServicioSimpleDTO> getServicioByCategoria(@PathParam("categoria") String categoria) {
+      return ssLogic.getServiciobyCategoria(categoria);
     }
 }

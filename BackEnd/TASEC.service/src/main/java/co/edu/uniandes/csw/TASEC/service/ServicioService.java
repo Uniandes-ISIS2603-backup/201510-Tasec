@@ -62,10 +62,5 @@ public class ServicioService {
     public void updateServicio(@PathParam("id") Long id, ServicioDTO ss) {
         ssLogic.updateServicio(ss);
     }
-    @GET
-    @Path("categoria")
-    public List<ServicioDTO> getServicioByCategoria(@PathParam("categoria") String categoria) {
-      return ssLogic.getServiciobyCategoria(categoria);
-    }
     
 }
